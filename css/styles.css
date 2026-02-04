@@ -1,0 +1,41 @@
+:root{
+    /* COLORS */
+    --color-primary: #5D1C34;
+    
+    --color-accent: #EFE9E1;
+    --color-background: #FFFFFF; /*TO BE CHANGED*/
+
+    /* BUTTON Backgrounds */
+    --color-btn-green: #00491F;
+    --color-btn-red: #D03038;
+    --color-btn-neutral: #C1C1C1;
+
+    /* TEXT or Font Colors */
+    --color-black: #11100F;
+    --color-white: #FFFFFF;
+}
+
+/* Get Lato from assets */
+@font-face {
+    font-family: 'Lato';
+    src: url('../assets/lato-font/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Get Playfair Display from assets */
+@font-face{
+    font-family: 'Playfair Display';
+    src: url('../assets/playfair-font/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* GLOBAL STYLES */
+.header-text{
+    font-family: 'Playfair Display', serif !important;
+}
+
+body {
+    font-family: 'Lato', sans-serif !important;
+}
