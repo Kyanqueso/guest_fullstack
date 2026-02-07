@@ -43,19 +43,18 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
             <div class="col">
                 <a href="shoe_details.html?id=${shoe.shoe_catalog_id}" class="text-decoration-none text-dark">
                     <div class="h-100 border-0">
-                        <div class="image-wrapper">
+                        <div class="image-wrapper box-drop-shadow rounded">
                             <img src="${shoe.image_url || 'https://via.placeholder.com/400x300?text=No+Image'}"
                                 alt="${shoe.model_name}"
-                                class="shoe-img box-drop-shadow rounded">
+                                class="shoe-img">
                         </div>
                         <div class="d-flex flex-column p-3 text-center">
-                            <h5 class="fw-bold   mb-1">${shoe.model_name}</h5>
+                            <h3 class="fw-bold   mb-1">${shoe.model_name}</h3>
                             <p class="text-muted small mb-0">₱${shoe.price}</p>
                         </div>
                     </div>
                 </a>
             </div>
-
         `;
         container.innerHTML += cardHtml;
     });

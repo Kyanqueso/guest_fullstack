@@ -276,29 +276,6 @@ footer hr {
     }
 }
 
-/* ------ Shoe Catalog Styles ------ */
-
-
-
-#filterDropdown, #filterDropdown + .dropdown-menu .dropdown-divider {
-    margin: 0;     /* smaller gap if needed */
-}
-
-#filterDropdown + .dropdown-menu .dropdown-item:hover{
-    background-color: #d8d8d8 !important;
-    cursor: pointer;
-}
-
-#filterDropdown + .dropdown-menu .dropdown-item.active {
-    background-color: var(--color-black); 
-    color: white;
-}
-
-#filterDropdown + .dropdown-menu .dropdown-item.active:hover{
-    background-color: var(--color-black) !important; 
-    color: white !important;
-}
-
 /* ------ About Us Styles ------ */
 #about-us-text {
     font-size: 1.5rem; /* Larger font size for better readability */
@@ -319,6 +296,26 @@ footer hr {
 }
 
 /* ------ Shoe Catalog Styles ------ */
+
+#filterDropdown, #filterDropdown + .dropdown-menu .dropdown-divider {
+    margin: 0;     /* smaller gap if needed */
+}
+
+#filterDropdown + .dropdown-menu .dropdown-item:hover{
+    background-color: #d8d8d8 !important;
+    cursor: pointer;
+}
+
+#filterDropdown + .dropdown-menu .dropdown-item.active {
+    background-color: var(--color-black); 
+    color: white;
+}
+
+#filterDropdown + .dropdown-menu .dropdown-item.active:hover{
+    background-color: var(--color-black) !important; 
+    color: white !important;
+}
+
 .image-wrapper {
     position: relative;
     overflow: hidden;
