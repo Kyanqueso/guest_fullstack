@@ -1,0 +1,98 @@
+#details-bg{
+    background: rgba(255, 255, 255, 0.8)
+}
+
+#hover{
+    font-size: 0.8rem;
+}
+
+.material-btn, .mold-btn, .heel-btn, .btn-light{
+    background-color: #fff !important;
+    border: 1px solid #000 !important;
+    color: #000;
+    transition: all 0.2s ease;
+}
+
+.material-btn:hover,
+.mold-btn:hover,
+.heel-btn:hover,
+.btn-light:hover {
+    background-color: #f0f0f0 !important; /* light gray on hover */
+}
+
+.material-btn.active, .mold-btn.active, .heel-btn.active {
+    background-color: var(--color-primary) !important;
+    color: #fff !important;
+    border-color: var(--color-primary) !important;
+}
+
+.btn-light.active,
+.btn-check:checked + .btn-light {
+    background-color: var(--color-primary) !important;
+    color: #fff !important; 
+    border-color: var(--color-primary) !important;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 0.2rem color-mix(in srgb, var(--color-primary) 75%, transparent) !important;
+}
+
+.no-design{
+    border: none;
+    background-color: var(--color-white);
+}
+
+/* Overlay Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
+/* Material Overlay */
+.overlay-content-1 {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 300px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+/* Preference Overlay */
+.overlay-content {
+    background: var(--color-accent);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    position: relative;
+    overflow-y: auto; /* THIS ENABLES SCROLLING */
+}
+
+.list-group-item {
+  border-bottom: 1px solid rgba(0, 0, 0) !important; /* thin gray border */
+}
+
+#overlaySelections ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#overlaySelections li {
+    margin-bottom: 0.5rem;
+}
+
+.text-smaller{
+    font-size: 0.7rem;
+}

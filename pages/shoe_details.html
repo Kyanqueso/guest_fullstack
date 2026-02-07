@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import CSS Files and Local Bootstrap-->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/shoe_details.css">
+    <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
+
+    <title>Theresa Shoes Landing Page</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- HEADER and Navigation -->
+    <header class="position-relative position-md-fixed top-0 w-100" style="z-index: 100;">
+        <ul class="nav w-100 px-3 py-2 flex-column flex-md-row align-items-center justify-content-between"
+            style="background-color: var(--color-primary);">
+
+            <!-- Brand -->
+            <li class="nav-item">
+                <h1 class="header-text mb-2 mb-md-0 ps-md-5 text-white text-center text-lg-start">
+                    Theresa Shoes
+                </h1>
+            </li>
+
+            <!-- Nav links wrapper -->
+            <li class="nav-item">
+                <ul class="nav flex-column flex-md-row justify-content-center gap-lg-4 fs-5">
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center active" href="shoe_catalog.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="about_us.html">About Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow-1" style="background-color: var(--color-accent);">
+        <div class="d-flex flex-row justify-content-between w-75 mx-auto my-4">
+            <button id="prevBtn" class="btn btn-light rounded-circle box-drop-shadow">
+                <img src="../assets/icons/chevron-left.svg" alt="Location" style="width:16px;">
+            </button>
+            <button id="nextBtn" class="btn btn-light rounded-circle box-drop-shadow">
+                <img src="../assets/icons/chevron-right.svg" alt="Location" style="width:16px;">
+            </button>
+        </div>
+        <div class="row mx-5 gx-3 gx-md-5">
+            <!-- Image column -->
+            <div class="col-12 col-md-6 mb-4">
+                <img id="shoeImage" src="https://placehold.co/400x400"
+                    class="img-fluid w-100 rounded-3 box-drop-shadow">
+            </div>
+
+            <!-- Details column -->
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-self-start rounded box-drop-shadow mb-5 px-4"
+                id="details-bg">
+                <div class="my-3">
+                    <h1 id="shoeName" class="fw-bold">---</h1>
+                    <hr>
+                    <h3 id="shoePrice">₱---</h3>
+                </div>
+
+                <!-- Materials -->
+                <div class="mb-4">
+                    <h5 class="fw-bold">Materials</h5>
+                    <div class="row g-2">
+                        <!-- Helga -->
+                        <div class="col-6 col-lg-3 text-center">
+                            <button class="btn material-btn w-100">Helga</button>
+                            <button class="no-design mt-1"
+                                    data-text="Helga Material Colors" 
+                                    data-img="../assets/images/patent-leather-colors.png">
+                                <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
+                            </button>
+                        </div>
+
+                        <!-- Snake -->
+                        <div class="col-6 col-lg-3 text-center">
+                            <button class="btn material-btn w-100">Snake</button>
+                            <button class="no-design mt-1"
+                                    data-text="Snake Skin Material Colors" 
+                                    data-img="../assets/images/patent-leather-colors.png">
+                                <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
+                            </button>
+                        </div>
+
+                        <!-- Patent -->
+                        <div class="col-6 col-lg-3 text-center">
+                            <button class="btn material-btn w-100">Patent</button>
+                            <button class="no-design mt-1"
+                                    data-text="Patent Leather Colors" 
+                                    data-img="../assets/images/patent-leather-colors.png">
+                                <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
+                            </button>
+                        </div>
+
+                        <!-- Tanya -->
+                        <div class="col-6 col-lg-3 text-center">
+                            <button class="btn material-btn w-100">Tanya</button>
+                            <button class="no-design mt-1"
+                                    data-text="Tanya Material Colors" 
+                                    data-img="../assets/images/patent-leather-colors.png">
+                                <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Color -->
+                <div class="mb-4">
+                    <h5 class="fw-bold">Color / Color Code <span id="hover" class="fw-light">(Click the info icon to see codes)</span></h5>
+                    <input class="form-control w-50" style="border: 1px solid black;" id="formControlInput" placeholder="e.g. Red, H02, S04">
+                </div>
+
+                <!-- Shoe Mold Type -->
+                <div class="mb-4">
+                    <h5 class="fw-bold">Shoe Mold Type</h5>
+                    <div class="row g-2">
+                        <div class="col-4 col-lg">
+                            <button class="btn mold-btn w-100">None</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn mold-btn w-100">Milani</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn mold-btn w-100">Ferage</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn mold-btn w-100">Liz</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn mold-btn w-100">Square</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shoe Heel Type -->
+                <div class="mb-4">
+                    <h5 class="fw-bold">Shoe Heel Type</h5>
+                    <div class="row g-2">
+                        <div class="col-4 col-lg">
+                            <button class="btn heel-btn w-100">Cuban</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn heel-btn w-100">Putol</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn heel-btn w-100">Wedge</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn heel-btn w-100">Cone</button>
+                        </div>
+                        <div class="col-4 col-lg">
+                            <button class="btn heel-btn w-100">Contessa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shoe and Heel Size -->
+                <div class="mb-4">
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <h5 class="fw-bold">Shoe Size</h5>
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    US Size 5
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item">US Size 5</a></li>
+                                    <li><a class="dropdown-item">US Size 6</a></li>
+                                    <li><a class="dropdown-item">US Size 7</a></li>
+                                    <li><a class="dropdown-item">US Size 8</a></li>
+                                    <li><a class="dropdown-item">US Size 9</a></li>
+                                    <li><a class="dropdown-item">US Size 10</a></li>
+                                    <li><a class="dropdown-item">US Size 11</a></li>
+                                    <li><a class="dropdown-item">US Size 12</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <h5 class="fw-bold">Heel Size</h5>
+                            <div class="dropdown">
+                                <button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    US Size 2
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><a class="dropdown-item">US Size 2</a></li>
+                                    <li><a class="dropdown-item">US Size 3</a></li>
+                                    <li><a class="dropdown-item">US Size 4</a></li>
+                                    <li><a class="dropdown-item">US Size 5</a></li>
+                                    <li><a class="dropdown-item">US Size 6</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quantity -->
+                <div class="mb-4">
+                    <h5 class="fw-bold">Quantity</h5>
+                    <input type="number" style="border: 1px solid black;" class="form-control w-50" id="formControlInput">
+                </div>
+
+                <!-- Yes or No Radio Buttons -->
+                <div class="mb-4">
+                    <div class="row g-3">
+                        <!-- With Buckle -->
+                        <div class="col-12 col-md-4">
+                            <h5 class="fw-bold">With Buckle?</h5>
+                            <div class="btn-group" role="group" aria-label="Buckle toggle button group">
+                                <input type="radio" class="btn-check" name="buckle" id="buckleYes" autocomplete="off" checked>
+                                <label class="btn btn-light" for="buckleYes">Yes</label>
+
+                                <input type="radio" class="btn-check" name="buckle" id="buckleNo" autocomplete="off">
+                                <label class="btn btn-light" for="buckleNo">No</label>
+                            </div>
+                        </div>
+
+                        <!-- With Platform -->
+                        <div class="col-12 col-md-4">
+                            <h5 class="fw-bold">With Platform?</h5>
+                            <div class="btn-group" role="group" aria-label="Platform toggle button group">
+                                <input type="radio" class="btn-check" name="platform" id="platformYes" autocomplete="off" checked>
+                                <label class="btn btn-light" for="platformYes">Yes</label>
+
+                                <input type="radio" class="btn-check" name="platform" id="platformNo" autocomplete="off">
+                                <label class="btn btn-light" for="platformNo">No</label>
+                            </div>
+                        </div>
+
+                        <!-- With Slingback -->
+                        <div class="col-12 col-md-4">
+                            <h5 class="fw-bold">With Slingback?</h5>
+                            <div class="btn-group" role="group" aria-label="Slingback toggle button group">
+                                <input type="radio" class="btn-check" name="slingback" id="slingbackYes" autocomplete="off" checked>
+                                <label class="btn btn-light" for="slingbackYes">Yes</label>
+
+                                <input type="radio" class="btn-check" name="slingback" id="slingbackNo" autocomplete="off">
+                                <label class="btn btn-light" for="slingbackNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="mb-4">
+                    <button class="w-100 py-2 btn btn-dark">GRAB A PAIR NOW!</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="w-100 p-3" style="background-color: var(--color-black);">
+            <div class="d-flex flex-column flex-md-row">
+                <div class="w-100 w-md-50 p-3">
+                    <h4 class="header-text text-white">Theresa Shoes</h4>
+                    <p class="pt-2">Crafting quality footwear since our establishment. Each pair is made with dedication to style, comfort, and lasting quality.</p>
+                </div>
+
+                <div class="w-100 w-md-50 p-3">
+                    <h4 class="header-text text-white">Get in touch</h4>
+                    <p>
+                        <img src="../assets/icons/location.svg" alt="Location" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        Marikina City, Metro Manila
+                    </p>
+                    <p>
+                        <img src="../assets/icons/phone.svg" alt="Phone" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        0922-597-8596
+                    </p>
+                    <p>
+                        <img src="../assets/icons/mail.svg" alt="Email" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        info@theresashoes.com
+                    </p>
+                </div>
+            </div>
+            <hr class="w-75 mx-auto">
+            <p class="text-center">© 2025 Maria Theresa Shoes. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Material Overlay -->
+    <div id="materialOverlay" class="overlay d-none">
+        <div class="overlay-content-1">
+            <button id="overlayClose1" class="btn btn-dark btn-sm" style="position:absolute; top:10px; right:10px;">✕</button>
+            <h3 id="overlayText" class="text-center fw-bold mt-1">---</h3>
+            <hr>
+            <img id="overlayImage" src="" alt="Material Image" class="img-fluid mb-3">
+        </div>
+    </div>
+
+    <!-- Preference Overlay -->
+    <div id="selectionOverlay" class="overlay d-none">
+        <div class="overlay-content">
+
+            <div class="overlay-body row">
+                <!-- Left half: user selections -->
+                <div class="col-12 col-md-6 mb-3" id="overlaySelections">
+                    <h3 class="fw-bold mb-3">Your Selections</h3>
+                    <ul id="selectionList" class="list-group list-group-flush"></ul>
+                </div>
+
+                <!-- Right half: message and checkbox -->
+                <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-start ">
+                    <h5 class="fw-bold text-start">
+                        <img src="../assets/icons/camera.svg" alt="Location" style="width:24px; height:24px; vertical-align:middle;">
+                        Please take a picture of your preferences.
+                        <img src="../assets/icons/camera.svg" alt="Location" style="width:24px; height:24px; vertical-align:middle;">
+                    </h5>
+                    <p class="text-justify">
+                        Before you continue please take a picture of your shoe preferences using your phone or camera. This helps us make your custom order is exactly what you want!
+                    </p>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" value="" id="photoTakenCheckbox">
+                        <label class="form-check-label" for="photoTakenCheckbox">
+                            I have taken a picture of my preferences
+                        </label>
+                    </div>
+                    <p class="text-smaller text-muted fst-italic">(Check the box above if you have saved a picture of your preferences)</p>
+
+                    <!-- Close button -->
+                     <button class="mt-4 overlay-close btn btn-dark w-100">Finish and Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call Javascript -->
+    <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/shoe_details.js"></script>
+</body>

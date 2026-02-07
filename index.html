@@ -9,11 +9,214 @@
 
     <title>Theresa Shoes Landing Page</title>
 </head>
-<body>
-    <h1 class="text-center">Hello World!</h1>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- HEADER and Navigation -->
+    <header class="position-relative position-md-fixed top-0 w-100" style="z-index: 100;">
+        <ul class="nav w-100 px-3 py-2 flex-column flex-md-row align-items-center justify-content-between"
+            style="background-color: var(--color-primary);">
+
+            <!-- Brand -->
+            <li class="nav-item">
+                <h1 class="header-text mb-2 mb-md-0 ps-md-5 text-white text-center text-lg-start">
+                    Theresa Shoes
+                </h1>
+            </li>
+
+            <!-- Nav links wrapper -->
+            <li class="nav-item">
+                <ul class="nav flex-column flex-md-row justify-content-center gap-lg-4 fs-5">
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="pages/shoe_catalog.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="pages/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="pages/about_us.html">About Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow-1" style="background-color: var(--color-accent);">
+        
+        <!-- Carousel -->
+        <div class="container-fluid p-0">
+    
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+                
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    
+                    <div class="carousel-item active">
+                        <img src="assets/images/carousel-1.png" class="d-block w-100" alt="Nature">
+                        <div class="carousel-caption caption-right">
+                            <h1 class="header-text fw-bold big-h1" style="color: var(--color-goldish-brown)">NEW.</h1>
+                            <h1 class="header-text fw-bold big-h1" style="color: var(--color-goldish-brown)">NOW.</h1>
+                            <h1 class="header-text fw-bold big-h1" style="color: var(--color-primary)">YOURS.</h1>
+                            <a href="pages/shoe_catalog.html"
+                                class="btn pri-btn py-2 px-5 fs-6 text-white fs-4 mt-2"
+                                style="background-color: var(--color-primary);">
+                                    Discover Now
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="assets/images/carousel-2.png" class="d-block w-100" alt="Water">
+                        <div class="carousel-caption caption-top-left text-black">
+                            <h1 class="header-text fw-bold">RICH SELECTION</h1>
+                            <p class="w-75">Spruce up your everyday office look with our wide range of stylish, refined formal shoes.</p>
+                            <a class="btn btn-dark px-5 py-2 fs-5" href="pages/shoe_catalog.html">Browse All Styles</a>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="assets/images/carousel-3.png" class="d-block w-100" alt="Canyon">
+                        <div class="carousel-caption caption-center caption-bg-2 text-black box-drop-shadow">
+                            <h1 class="header-text fw-bold">MADE TO ORDER</h1>
+                            <p class="text-center fs-5">Custom-made shoes for professionals, perfect for day-to-day usage</p>
+                            <a class="btn btn-dark px-5 py-2 fs-5" href="pages/shoe_catalog.html">Try it Now</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Second section -->
+        <div class="container">
+            
+            <!-- First sub div: image + text -->
+            <div class="row align-items-center my-5">
+                
+                <!-- Text (comes first on small screens) -->
+                <div class="col-12 col-md-6 order-1 order-md-2
+                    d-flex flex-column
+                    justify-content-center
+                    align-items-center
+                    align-items-md-start">
+                    <h1 class="header-text fw-bolder">STYLISH.</h1>
+                    <h1 class="header-text fw-bolder">COMFORTABLE.</h1>
+                    <h1 class="header-text fw-bolder">REASONABLY PRICED.</h1>
+                    <p id="perfect-pair" class="fs-5">
+                        Get your perfect pair - just follow our four simple steps to begin your journey to better shoes.
+                    </p>
+                    <a href="pages/shoe_catalog.html"
+                    class="btn py-2 px-4 w-75 fs-5 text-white mb-5 pri-btn"
+                    style="background-color: var(--color-primary);">
+                        Discover Now
+                    </a>
+                </div>
+
+                <!-- Image -->
+                <div class="col-12 col-md-6 order-2 order-md-1">
+                    <img src="assets/images/temp/shoe1.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+
+            </div>
+
+            <!-- Second sub div: two images -->
+            <div class="row align-items-center my-5">
+                <div class="col-12 col-md-6 mb-5 mb-md-0">
+                    <img src="assets/images/temp/shoe2.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+                <div class="col-12 col-md-6">
+                    <img src="assets/images/temp/shoe3.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Women's Selection -->
+        <div class="py-3" style="background-color: var(--color-rusty-green);">
+            <div class="w-75 mx-auto rounded box-drop-shadow" style="background-color: #CDBCAB;">
+                <h1 id="women-selection" class="header-text mt-5 fw-bold text-center p-3">Women's Selection</h1>
+                <p id="browse-collection" class="px-3 text-center fs-5 pb-4 px-5">Browse our women's collection and discover a curated range of stylish, versatile, and quality-crafted shoes made to elevate every outfit.</p>
+            </div>
+            <div class="row g-3 mx-5 m-5 justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <img src="assets/images/temp/shoe4.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <img src="assets/images/temp/shoe5.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <img src="assets/images/temp/shoe6.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <img src="assets/images/temp/shoe7.JPG" class="img-fluid rounded-3 d-block mx-auto box-drop-shadow">
+                </div>
+            </div>
+            <div class="text-center mb-5">
+                <a href="pages/shoe_catalog.html"
+                class="btn py-3 px-5 fs-4 text-white pri-btn"
+                style="background-color: var(--color-primary);">
+                    Browse All Styles
+                </a>
+            </div>
+        </div>
+
+        <!-- Get a Pair Now -->
+        <div class="py-5 text-center text-white" style="background-color: var(--color-primary);">
+            <h1 id="get-a-pair" class="header-text mt-5 fw-bold">GET A PAIR NOW!</h1>
+            <p id="get-a-pair-p" class="mx-auto my-4">Step into elegance with our handcrafted shoes. Quality, comfort, and style in every step. 
+                Experience the difference that true craftsmanship makes.</p>
+            <a href="pages/contact.html" class="btn btn-light py-3 px-5 fs-5" style="color:var(--color-primary);">Contact Us</a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="w-100 p-3" style="background-color: var(--color-black);">
+            <div class="d-flex flex-column flex-md-row">
+                <div class="w-100 w-md-50 p-3">
+                    <h4 class="header-text text-white">Theresa Shoes</h4>
+                    <p class="pt-2">Crafting quality footwear since our establishment. Each pair is made with dedication to style, comfort, and lasting quality.</p>
+                </div>
+
+                <div class="w-100 w-md-50 p-3">
+                    <h4 class="header-text text-white">Get in touch</h4>
+                    <p>
+                        <img src="assets/icons/location.svg" alt="Location" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        Marikina City, Metro Manila
+                    </p>
+                    <p>
+                        <img src="assets/icons/phone.svg" alt="Phone" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        0922-597-8596
+                    </p>
+                    <p>
+                        <img src="assets/icons/mail.svg" alt="Email" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        info@theresashoes.com
+                    </p>
+                </div>
+            </div>
+            <hr class="w-75 mx-auto">
+            <p class="text-center">© 2025 Maria Theresa Shoes. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <!-- Call Javascript -->
-    <script src="js/index.js"></script>
-    <script src="js/supabase.js"></script>
     <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
 </body>

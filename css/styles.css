@@ -5,6 +5,9 @@
     --color-accent: #EFE9E1;
     --color-background: #FFFFFF; /*TO BE CHANGED*/
 
+    --color-rusty-green: #899481;
+    --color-goldish-brown: #A67D44;
+
     /* BUTTON Backgrounds */
     --color-btn-green: #00491F;
     --color-btn-red: #D03038;
@@ -38,4 +41,312 @@
 
 body {
     font-family: 'Lato', sans-serif !important;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+.box-drop-shadow{
+    box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* ------ Header Styles ------ */
+
+/* Base nav-link style */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline effect */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+/* Hover state */
+.nav-link:hover {
+    color: #f8f9fa; 
+}
+
+/* Animate underline from center */
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Active link stays highlighted */
+.nav-link.active::after {
+    width: 100%;
+    left: 0;
+}
+
+/* ------ Footer Styles ------ */
+footer p {
+    color: #cccccc; 
+    font-size: small;
+}
+footer hr {
+    border-color: #555555; /* dark gray line, softer than white */
+    opacity: 0.5; /* optional: makes it lighter and subtle */
+}
+
+/* ------ Landing Page Styles ------ */
+
+.carousel-item {
+    height: 600px; /* Set your desired fixed height here */
+}
+
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 500px; 
+    }
+}
+
+.carousel-caption {
+    /* Ensure caption is above the image but below the navbar if you have one */
+    z-index: 10; 
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* This prevents the image from stretching/distorting */
+    object-position: center;
+}
+
+/* Black circular background */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    padding: 20% 12%;
+    background-color: #000;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background-size: 50% 50%;
+}
+
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+    background-color: #222;
+}
+
+/* Center Middle */
+.caption-center {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    height: 224px;
+}
+
+/* Top Left */
+.caption-top-left {
+    top: 20px !important;
+    left: 10% !important; /* Matches bootstrap's default side spacing */
+    right: auto !important;
+    bottom: auto !important;
+    text-align: left !important;
+}
+
+/* Right Side */
+.caption-right {
+    top: 10%;
+    bottom: 10% !important;
+    right: 15% !important;
+    left: auto !important;
+    text-align: right;
+}
+
+.big-h1{
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .header-text {
+        font-size: 1.5rem; /* Shrink normal headers */
+    }
+    .carousel-caption p {
+        font-size: 0.9rem; /* Shrink paragraph text */
+        width: 100% !important; /* Allow paragraph to take full width of caption container */
+    }
+    .btn {
+        padding: 10px 20px !important; /* Smaller buttons */
+        font-size: 1rem !important;
+    }
+    
+    /* On very small screens, you might want to reset positions to center 
+        to avoid text getting cut off on the sides. 
+        Uncomment below if you want all captions centered on mobile. */
+    /* .caption-right, .caption-top-left, .caption-center {
+        top: 50% !important;
+        left: 10% !important;
+        right: 10% !important;
+        transform: translateY(-50%) !important;
+        text-align: center !important;
+    } 
+    */
+}
+
+/* Optional: Darken background behind text for readability */
+.caption-bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+.caption-bg-2 {
+    background-color: color-mix(in srgb, var(--color-accent) 92%, transparent);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#women-selection{
+    font-size: 4rem;
+    letter-spacing: 2px;
+}
+
+#get-a-pair {
+    font-size: 4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#get-a-pair-p{
+    width: 50% !important;
+}
+
+.pri-btn:hover {
+    background-color: #7A2948;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(93, 28, 52, 0.35);
+}
+@media (max-width: 768px) {
+    .carousel-inner {
+        height: 400px !important; /* Set a uniform height for the carousel */
+    }
+    #women-selection{
+        font-size: 3rem !important;
+        letter-spacing: 2px !important;
+    }
+    #browse-collection {
+        font-size: 1rem !important;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+    }
+    #perfect-pair {
+        width: 92% !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 468px){
+    .carousel-inner {
+        height: 200px !important; /* Set a uniform height for the carousel */
+    }
+    #women-selection{
+        font-size: 3rem !important;
+        letter-spacing: 2px !important;
+    }
+    #browse-collection {
+        font-size: 1rem !important;
+    }
+    #get-a-pair {
+        font-size: 3rem;
+        padding-left: 5% !important;
+        padding-right: 5% !important;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+    #get-a-pair-p{
+        width: 92% !important;
+    }
+    #perfect-pair {
+        width: 92% !important;
+        font-size: 0.8rem !important;
+        text-align: center !important;
+    }
+}
+
+/* ------ Shoe Catalog Styles ------ */
+
+
+
+#filterDropdown, #filterDropdown + .dropdown-menu .dropdown-divider {
+    margin: 0;     /* smaller gap if needed */
+}
+
+#filterDropdown + .dropdown-menu .dropdown-item:hover{
+    background-color: #d8d8d8 !important;
+    cursor: pointer;
+}
+
+#filterDropdown + .dropdown-menu .dropdown-item.active {
+    background-color: var(--color-black); 
+    color: white;
+}
+
+#filterDropdown + .dropdown-menu .dropdown-item.active:hover{
+    background-color: var(--color-black) !important; 
+    color: white !important;
+}
+
+/* ------ About Us Styles ------ */
+#about-us-text {
+    font-size: 1.5rem; /* Larger font size for better readability */
+    line-height: 1.8; /* Increased line height for improved spacing */
+}
+
+/* Adjust font size for smaller screens */
+@media (max-width: 768px) {
+    #about-us-text {
+        font-size: 1.2rem; 
+    }
+}
+
+@media (max-width: 468px){
+    #about-us-text {
+        font-size: 1rem; 
+    }
+}
+
+/* ------ Shoe Catalog Styles ------ */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.shoe-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+a:hover .shoe-img {
+    transform: scale(1.03);
+    transition: 0.2s ease;
+}
+
+/* Gradient overlay */
+.image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.2), rgba(0,0,0,0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show gradient on hover */
+.image-wrapper:hover::after {
+    opacity: 1;
 }
