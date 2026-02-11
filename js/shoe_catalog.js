@@ -1,27 +1,37 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import { getCache, setCache } from './cache.js'
 
 // Initialize Supabase
 // CAUTION: In a real browser app, use your ANON public key here.
 // Do not put your SERVICE_ROLE (admin) key in frontend code.
 const supabaseUrl = "https://dohhnithtdwtwkfwccag.supabase.co"
-const supabaseKey = "sb_publishable_Tn2EFv2bbXbD9E6OxEwiLQ_VECvXrPr"; 
+const supabaseKey = "sb_publishable_Tn2EFv2bbXbD9E6OxEwiLQ_VECvXrPr";
 const supabase = createClient(supabaseUrl, supabaseKey)
 
 // Function to fetch and render
 async function fetchAndRenderShoes(sortOrder = 'asc') {
     const container = document.getElementById('shoe-container');
 
-    // Fetch data from table 'shoe_catalog'
-    const { data: shoes, error } = await supabase
-        .from('shoe_catalog')
-        .select('*')
-        .order('price', {ascending: sortOrder === 'asc'});
+    // Try cache first
+    let shoes = getCache();
 
-    if (error) {
-        console.error('Error fetching shoes:', error);
-        container.innerHTML = `<p class="text-danger text-center">Error loading catalog. Please try again later.</p>`;
-        return;
+    if (!shoes) {
+        const { data, error } = await supabase
+            .from('shoe_catalog')
+            .select('*, shoe_images(*)')
+
+        if (error) {
+            console.error('Error fetching shoes:', error);
+            container.innerHTML = `<p class="text-danger text-center">Error loading catalog. Please try again later.</p>`;
+            return;
+        }
+
+        shoes = data;
+        setCache(shoes);
     }
+
+    // Sort client-side
+    shoes = [...shoes].sort((a, b) => sortOrder === 'asc' ? a.price - b.price : b.price - a.price);
 
     // Clear the "Loading..." text
     container.innerHTML = '';
@@ -38,13 +48,17 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
 
     // Generate HTML for each shoe
     shoes.forEach(shoe => {
-        // Adjust these property names (shoe.name, shoe.price) matches your DB columns
+        // Pick the primary image (lowest display_order)
+        const images = shoe.shoe_images || [];
+        images.sort((a, b) => a.display_order - b.display_order);
+        const primaryImage = images.length > 0 ? images[0].image_url : 'https://via.placeholder.com/400x300?text=No+Image';
+
         const cardHtml = `
             <div class="col">
                 <a href="shoe_details.html?id=${shoe.shoe_catalog_id}" class="text-decoration-none text-dark">
                     <div class="h-100 border-0">
                         <div class="image-wrapper box-drop-shadow rounded">
-                            <img src="${shoe.image_url || 'https://via.placeholder.com/400x300?text=No+Image'}"
+                            <img src="${primaryImage}"
                                 alt="${shoe.model_name}"
                                 class="shoe-img">
                         </div>

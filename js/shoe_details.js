@@ -1,8 +1,30 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+import { getCache, setCache } from './cache.js';
 
 const supabaseUrl = "https://dohhnithtdwtwkfwccag.supabase.co"
 const supabaseKey = "sb_publishable_Tn2EFv2bbXbD9E6OxEwiLQ_VECvXrPr"
 const supabase = createClient(supabaseUrl, supabaseKey)
+
+// Fetch all shoes (with images) and cache them, shared with catalog page
+async function fetchAllShoes() {
+    let shoes = getCache();
+
+    if (!shoes) {
+        const { data, error } = await supabase
+            .from("shoe_catalog")
+            .select("*, shoe_images(*)")
+
+        if (error) {
+            console.error("Error fetching shoes:", error);
+            return null;
+        }
+
+        shoes = data;
+        setCache(shoes);
+    }
+
+    return shoes;
+}
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -14,18 +36,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
 
-    // Fetch all shoe IDs from Supabase
-    const { data: shoes, error } = await supabase
-        .from("shoe_catalog")
-        .select("shoe_catalog_id")
-        .order("shoe_catalog_id", { ascending: true }); // optional sort
+    // Fetch all shoes (uses cache if available)
+    const allShoes = await fetchAllShoes();
 
-    if (error) {
-        console.error("Error fetching shoe IDs:", error);
-        return;
-    }
+    if (!allShoes) return;
 
-    const shoeIds = shoes.map(s => s.shoe_catalog_id); // store IDs in array
+    const shoeIds = allShoes.map(s => s.shoe_catalog_id).sort((a, b) => a - b);
     let currentIndex = shoeIds.findIndex(id => id == shoeId);
 
     if (currentIndex === -1) currentIndex = 0;
@@ -52,28 +68,56 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Elements
     const shoeImage = document.getElementById("shoeImage");
+    const thumbnailContainer = document.getElementById("thumbnailContainer");
     const shoeName = document.getElementById("shoeName");
     const shoePrice = document.getElementById("shoePrice");
 
-    async function fetchShoeDetails(id = shoeId) {
+    function fetchShoeDetails(id = shoeId) {
 
         if (!id) return;
 
-        const { data: shoe, error } = await supabase
-            .from("shoe_catalog")
-            .select("*")
-            .eq("shoe_catalog_id", id)
-            .single();
+        // Look up shoe from the already-fetched (and cached) list
+        const shoe = allShoes.find(s => s.shoe_catalog_id == id);
 
-        if (error) {
-            console.error("Error fetching shoe:", error);
+        if (!shoe) {
+            console.error("Shoe not found:", id);
             return;
         }
-        
-        // Populate UI
-        shoeImage.src = shoe.image_url || "https://via.placeholder.com/400x300?text=No+Image";
+
+        // Populate name and price
         shoeName.textContent = shoe.model_name;
         shoePrice.textContent = `₱${shoe.price}`;
+
+        // Sort images by display_order
+        const images = shoe.shoe_images || [];
+        images.sort((a, b) => a.display_order - b.display_order);
+
+        if (images.length === 0) {
+            shoeImage.src = "https://via.placeholder.com/400x400?text=No+Image";
+            thumbnailContainer.innerHTML = '';
+            return;
+        }
+
+        // Set main image to first
+        shoeImage.src = images[0].image_url;
+
+        // Build thumbnail strip
+        thumbnailContainer.innerHTML = '';
+        images.forEach((img, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = img.image_url;
+            thumb.alt = `${shoe.model_name} view ${index + 1}`;
+            thumb.classList.add('gallery-thumbnail');
+            if (index === 0) thumb.classList.add('active');
+
+            thumb.addEventListener('click', () => {
+                shoeImage.src = img.image_url;
+                thumbnailContainer.querySelectorAll('.gallery-thumbnail').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+
+            thumbnailContainer.appendChild(thumb);
+        });
     }
 
     fetchShoeDetails();

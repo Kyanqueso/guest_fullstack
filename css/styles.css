@@ -101,31 +101,23 @@ footer hr {
 /* ------ Landing Page Styles ------ */
 
 .carousel-item {
-    height: 600px; /* Set your desired fixed height here */
-}
-
-@media (max-width: 768px) {
-    .carousel-item {
-        height: 500px; 
-    }
+    height: 600px;
 }
 
 .carousel-caption {
-    /* Ensure caption is above the image but below the navbar if you have one */
-    z-index: 10; 
+    z-index: 10;
 }
 
 .carousel-item img {
     height: 100%;
     width: 100%;
-    object-fit: cover; /* This prevents the image from stretching/distorting */
+    object-fit: cover;
     object-position: center;
 }
 
 /* Black circular background */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    padding: 20% 12%;
     background-color: #000;
     border-radius: 50%;
     width: 48px;
@@ -149,7 +141,7 @@ footer hr {
 /* Top Left */
 .caption-top-left {
     top: 20px !important;
-    left: 10% !important; /* Matches bootstrap's default side spacing */
+    left: 10% !important;
     right: auto !important;
     bottom: auto !important;
     text-align: left !important;
@@ -170,32 +162,6 @@ footer hr {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-    .header-text {
-        font-size: 1.5rem; /* Shrink normal headers */
-    }
-    .carousel-caption p {
-        font-size: 0.9rem; /* Shrink paragraph text */
-        width: 100% !important; /* Allow paragraph to take full width of caption container */
-    }
-    .btn {
-        padding: 10px 20px !important; /* Smaller buttons */
-        font-size: 1rem !important;
-    }
-    
-    /* On very small screens, you might want to reset positions to center 
-        to avoid text getting cut off on the sides. 
-        Uncomment below if you want all captions centered on mobile. */
-    /* .caption-right, .caption-top-left, .caption-center {
-        top: 50% !important;
-        left: 10% !important;
-        right: 10% !important;
-        transform: translateY(-50%) !important;
-        text-align: center !important;
-    } 
-    */
-}
-
 /* Optional: Darken background behind text for readability */
 .caption-bg {
     background-color: rgba(0, 0, 0, 0.5);
@@ -206,6 +172,91 @@ footer hr {
     background-color: color-mix(in srgb, var(--color-accent) 92%, transparent);
     padding: 20px;
     border-radius: 10px;
+}
+
+/* --- Carousel tablet breakpoint --- */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 400px;
+    }
+
+    .big-h1 {
+        font-size: 2.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.9rem;
+        width: 100% !important;
+    }
+
+    .carousel-caption .btn {
+        padding: 8px 20px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .caption-center {
+        height: auto;
+    }
+}
+
+/* --- Carousel phone breakpoint --- */
+@media (max-width: 576px) {
+    .carousel-item {
+        height: 280px;
+    }
+
+    /* Center all captions on mobile */
+    .caption-right,
+    .caption-top-left,
+    .caption-center {
+        top: 50% !important;
+        left: 8% !important;
+        right: 8% !important;
+        bottom: auto !important;
+        transform: translateY(-50%) !important;
+        text-align: center !important;
+        height: auto !important;
+        padding: 12px;
+    }
+
+    .big-h1 {
+        font-size: 1.8rem;
+    }
+
+    .header-text {
+        font-size: 1.3rem;
+    }
+
+    .carousel-caption p {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .carousel-caption .btn {
+        padding: 6px 16px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* --- Carousel very small phone --- */
+@media (max-width: 400px) {
+    .carousel-item {
+        height: 220px;
+    }
+
+    .big-h1 {
+        font-size: 1.4rem;
+    }
+
+    .carousel-caption p {
+        display: none;
+    }
 }
 
 #women-selection{
@@ -229,9 +280,6 @@ footer hr {
     box-shadow: 0 6px 16px rgba(93, 28, 52, 0.35);
 }
 @media (max-width: 768px) {
-    .carousel-inner {
-        height: 400px !important; /* Set a uniform height for the carousel */
-    }
     #women-selection{
         font-size: 3rem !important;
         letter-spacing: 2px !important;
@@ -249,9 +297,6 @@ footer hr {
 }
 
 @media (max-width: 468px){
-    .carousel-inner {
-        height: 200px !important; /* Set a uniform height for the carousel */
-    }
     #women-selection{
         font-size: 3rem !important;
         letter-spacing: 2px !important;
