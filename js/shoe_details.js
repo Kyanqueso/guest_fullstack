@@ -1,4 +1,5 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+// Pinned to exact version to prevent supply-chain attacks via auto-updates
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.4';
 import { getCache, setCache } from './cache.js';
 import { generateClientOrderPDF} from "./pdf_service.js";
 
@@ -72,6 +73,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Elements
+    // Only allow image URLs from trusted domains to prevent malicious content
+    const TRUSTED_DOMAINS = ['dohhnithtdwtwkfwccag.supabase.co', 'placehold.co', 'via.placeholder.com'];
+    const isTrustedUrl = (url) => {
+        try { return TRUSTED_DOMAINS.includes(new URL(url).hostname); }
+        catch { return false; }
+    };
+    const FALLBACK_IMG = "https://via.placeholder.com/400x400?text=No+Image";
+
     const shoeImage = document.getElementById("shoeImage");
     const thumbnailContainer = document.getElementById("thumbnailContainer");
     const shoeName = document.getElementById("shoeName");
@@ -103,20 +112,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             return;
         }
 
-        // Set main image to first
-        shoeImage.src = images[0].image_url;
+        // Set main image to first (validated against trusted domains)
+        shoeImage.src = isTrustedUrl(images[0].image_url) ? images[0].image_url : FALLBACK_IMG;
 
         // Build thumbnail strip
         thumbnailContainer.innerHTML = '';
         images.forEach((img, index) => {
             const thumb = document.createElement('img');
-            thumb.src = img.image_url;
+            thumb.src = isTrustedUrl(img.image_url) ? img.image_url : FALLBACK_IMG;
             thumb.alt = `${shoe.model_name} view ${index + 1}`;
             thumb.classList.add('gallery-thumbnail');
             if (index === 0) thumb.classList.add('active');
 
             thumb.addEventListener('click', () => {
-                shoeImage.src = img.image_url;
+                shoeImage.src = isTrustedUrl(img.image_url) ? img.image_url : FALLBACK_IMG;
                 thumbnailContainer.querySelectorAll('.gallery-thumbnail').forEach(t => t.classList.remove('active'));
                 thumb.classList.add('active');
             });

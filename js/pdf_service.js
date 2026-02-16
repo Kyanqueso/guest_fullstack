@@ -1,4 +1,5 @@
-import { jsPDF } from 'https://esm.sh/jspdf'
+// Pinned to exact version to prevent supply-chain attacks via auto-updates
+import { jsPDF } from 'https://esm.sh/jspdf@3.0.1'
 
 export async function generateClientOrderPDF(imageUrl, dataPoints){
     //A4 landscape document measured in millimeters

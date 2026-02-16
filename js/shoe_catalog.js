@@ -1,4 +1,5 @@
-import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+// Pinned to exact version to prevent supply-chain attacks via auto-updates
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.4'
 import { getCache, setCache } from './cache.js'
 
 // Initialize Supabase
@@ -46,31 +47,51 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
         return;
     }
 
-    // Generate HTML for each shoe
+    // Generate elements for each shoe using safe DOM methods to prevent XSS
+    // (Never use innerHTML with database content — use textContent instead)
     shoes.forEach(shoe => {
         // Pick the primary image (lowest display_order)
         const images = shoe.shoe_images || [];
         images.sort((a, b) => a.display_order - b.display_order);
         const primaryImage = images.length > 0 ? images[0].image_url : 'https://via.placeholder.com/400x300?text=No+Image';
 
-        const cardHtml = `
-            <div class="col">
-                <a href="shoe_details.html?id=${shoe.shoe_catalog_id}" class="text-decoration-none text-dark">
-                    <div class="h-100 border-0">
-                        <div class="image-wrapper box-drop-shadow rounded">
-                            <img src="${primaryImage}"
-                                alt="${shoe.model_name}"
-                                class="shoe-img">
-                        </div>
-                        <div class="d-flex flex-column p-3 text-center">
-                            <h3 class="fw-bold   mb-1">${shoe.model_name}</h3>
-                            <p class="text-muted small mb-0">₱${shoe.price}</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        `;
-        container.innerHTML += cardHtml;
+        const col = document.createElement('div');
+        col.className = 'col';
+
+        const link = document.createElement('a');
+        link.href = `shoe_details.html?id=${encodeURIComponent(shoe.shoe_catalog_id)}`;
+        link.className = 'text-decoration-none text-dark';
+
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'h-100 border-0';
+
+        const imgWrapper = document.createElement('div');
+        imgWrapper.className = 'image-wrapper box-drop-shadow rounded';
+
+        const img = document.createElement('img');
+        img.src = primaryImage;
+        img.alt = shoe.model_name;
+        img.className = 'shoe-img';
+
+        const textDiv = document.createElement('div');
+        textDiv.className = 'd-flex flex-column p-3 text-center';
+
+        const nameEl = document.createElement('h3');
+        nameEl.className = 'fw-bold mb-1';
+        nameEl.textContent = shoe.model_name;
+
+        const priceEl = document.createElement('p');
+        priceEl.className = 'text-muted small mb-0';
+        priceEl.textContent = `₱${shoe.price}`;
+
+        imgWrapper.appendChild(img);
+        textDiv.appendChild(nameEl);
+        textDiv.appendChild(priceEl);
+        cardDiv.appendChild(imgWrapper);
+        cardDiv.appendChild(textDiv);
+        link.appendChild(cardDiv);
+        col.appendChild(link);
+        container.appendChild(col);
     });
 }
 
