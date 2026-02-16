@@ -4,6 +4,14 @@ export async function generateClientOrderPDF(imageUrl, dataPoints){
     //A4 landscape document measured in millimeters
     const doc = new jsPDF('landscape', 'mm', 'a4');
 
+    // Only allow image fetches from trusted domains to prevent SSRF attacks
+    const allowedDomains = ['dohhnithtdwtwkfwccag.supabase.co', 'placehold.co'];
+    const url = new URL(imageUrl);
+    if (!allowedDomains.includes(url.hostname)) {
+        console.error('Untrusted image domain:', url.hostname);
+        return;
+    }
+
     const response = await fetch(imageUrl); //Download image from SupaBase Url
     const blob = await response.blob(); //Converts url -> binary data
 

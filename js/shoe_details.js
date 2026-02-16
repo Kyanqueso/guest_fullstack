@@ -45,8 +45,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!allShoes) return;
 
+    const shoeIdNum = parseInt(shoeId, 10);
     const shoeIds = allShoes.map(s => s.shoe_catalog_id).sort((a, b) => a - b);
-    let currentIndex = shoeIds.findIndex(id => id == shoeId);
+    let currentIndex = shoeIds.findIndex(id => id === shoeIdNum);
 
     if (currentIndex === -1) currentIndex = 0;
 
@@ -81,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (!id) return;
 
         // Look up shoe from the already-fetched (and cached) list
-        const shoe = allShoes.find(s => s.shoe_catalog_id == id);
+        const shoe = allShoes.find(s => s.shoe_catalog_id === Number(id));
 
         if (!shoe) {
             console.error("Shoe not found:", id);

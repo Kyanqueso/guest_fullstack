@@ -1,8 +1,7 @@
 
 /* --- Hero Section with Card --- */
 .hero-section {
-    /* Placeholder image used to simulate the background */
-    background: url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=2080&auto=format&fit=crop') no-repeat center center/cover;
+    background: url('../assets/images/contact-bg.jpg') no-repeat center center/cover;
     padding: 60px 20px;
     display: flex;
     justify-content: center;
