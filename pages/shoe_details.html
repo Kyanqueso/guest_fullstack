@@ -125,7 +125,7 @@
                 <!-- Color -->
                 <div class="mb-4">
                     <h5 class="fw-bold">Color / Color Code <span id="hover" class="fw-light">(Click the info icon to see codes)</span></h5>
-                    <input class="form-control w-50" style="border: 1px solid black;" id="formControlInput" placeholder="e.g. Red, H02, S04">
+                    <input class="form-control w-50" style="border: 1px solid black;" id="colorInput" placeholder="e.g. Red, H02, S04" maxlength="20">
                 </div>
 
                 <!-- Shoe Mold Type -->
@@ -178,10 +178,10 @@
                         <div class="col-6">
                             <h5 class="fw-bold">Shoe Size</h5>
                             <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-light dropdown-toggle w-100" type="button" id="shoeSizeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     US Size 5
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <ul class="dropdown-menu" aria-labelledby="shoeSizeDropdown">
                                     <li><a class="dropdown-item">US Size 5</a></li>
                                     <li><a class="dropdown-item">US Size 6</a></li>
                                     <li><a class="dropdown-item">US Size 7</a></li>
@@ -196,10 +196,10 @@
                         <div class="col-6">
                             <h5 class="fw-bold">Heel Size</h5>
                             <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="btn btn-light dropdown-toggle w-100" type="button" id="heelSizeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                     US Size 2
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <ul class="dropdown-menu" aria-labelledby="heelSizeDropdown">
                                     <li><a class="dropdown-item">US Size 2</a></li>
                                     <li><a class="dropdown-item">US Size 3</a></li>
                                     <li><a class="dropdown-item">US Size 4</a></li>
@@ -214,7 +214,7 @@
                 <!-- Quantity -->
                 <div class="mb-4">
                     <h5 class="fw-bold">Quantity</h5>
-                    <input type="number" style="border: 1px solid black;" class="form-control w-50" id="formControlInput">
+                    <input type="number" min="1" max="100" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput">
                 </div>
 
                 <!-- Yes or No Radio Buttons -->

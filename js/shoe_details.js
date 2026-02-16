@@ -134,15 +134,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const heelBtns = document.querySelectorAll(".heel-btn");
     
     // Dropdowns
-    const shoeSizeDropdownBtn = document.querySelector("#dropdownMenuButton");
-    
-    // Note: the heel dropdown is in the next column, but doesn't have a unique ID. 
-    const heelSizeDropdownBtn = shoeSizeDropdownBtn.closest('.col-6').nextElementSibling.querySelector('.dropdown-toggle');
+    const shoeSizeDropdownBtn = document.getElementById("shoeSizeDropdown");
+    const heelSizeDropdownBtn = document.getElementById("heelSizeDropdown");
 
-    const colorInput = document.querySelector("#formControlInput"); // First input (Color)
-    // Note: querySelectorAll returns a NodeList. We need to be specific.
-    const allInputs = document.querySelectorAll("#formControlInput");
-    const quantityInput = allInputs[1] ? allInputs[1] : document.querySelector('input[type="number"]'); // Fallback to type check if IDs are duplicated
+    const colorInput = document.getElementById("colorInput");
+    const quantityInput = document.getElementById("quantityInput");
 
     const buckleRadios = document.querySelectorAll('input[name="buckle"]');
     const platformRadios = document.querySelectorAll('input[name="platform"]');
