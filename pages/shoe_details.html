@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -260,7 +261,7 @@
                 <hr>
 
                 <div class="mb-4">
-                    <button class="w-100 py-2 btn btn-dark">GRAB A PAIR NOW!</button>
+                    <button id = "submitBtn" class="w-100 py-2 btn btn-dark">GRAB A PAIR NOW!</button>
                 </div>
 
             </div>
@@ -317,6 +318,7 @@
                 <div class="col-12 col-md-6 mb-3" id="overlaySelections">
                     <h3 class="fw-bold mb-3">Your Selections</h3>
                     <ul id="selectionList" class="list-group list-group-flush"></ul>
+                    <button id="downloadPdfBtn" class="mt-3 btn btn-dark w-100">Download Order Summary (PDF)</button>
                 </div>
 
                 <!-- Right half: message and checkbox -->
@@ -348,3 +350,4 @@
     <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
     <script type="module" src="../js/shoe_details.js"></script>
 </body>
+</html>

@@ -1,5 +1,6 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 import { getCache, setCache } from './cache.js';
+import { generateClientOrderPDF} from "./pdf_service.js";
 
 const supabaseUrl = "https://dohhnithtdwtwkfwccag.supabase.co"
 const supabaseKey = "sb_publishable_Tn2EFv2bbXbD9E6OxEwiLQ_VECvXrPr"
@@ -38,6 +39,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Fetch all shoes (uses cache if available)
     const allShoes = await fetchAllShoes();
+
+    //Used for PDF generation
+    let dataPoints = []
 
     if (!allShoes) return;
 
@@ -123,7 +127,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     fetchShoeDetails();
     
     // SELECT DOM ELEMENTS
-    const submitButton = document.querySelector(".btn-dark");
+    const submitButton = document.getElementById("submitBtn");
+
     const materialBtns = document.querySelectorAll(".material-btn");
     const moldBtns = document.querySelectorAll(".mold-btn");
     const heelBtns = document.querySelectorAll(".heel-btn");
@@ -253,7 +258,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
 
         // Create an Array of Objects (Label + Value)
-        const dataPoints = [
+        dataPoints = [
             { label: "Material",    value: getText(materialBtns) },
             { label: "Color Code",  value: colorInput.value },
             { label: "Shoe Mold",   value: getText(moldBtns) },
@@ -290,6 +295,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Show overlay
         overlay.classList.remove("d-none");
+    });
+
+    const downloadPdfBtn = document.getElementById("downloadPdfBtn");
+    downloadPdfBtn.addEventListener("click", () => {
+        generateClientOrderPDF(shoeImage.src, dataPoints);
     });
 
     // Close overlay
