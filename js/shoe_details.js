@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const overlay = document.getElementById("selectionOverlay");
     const closeBtn = document.querySelector(".overlay-close");
     const selectionList = document.getElementById("selectionList");
+    const photoCheckbox = document.getElementById("photoTakenCheckbox");
 
     // MATERIAL INFO OVERLAY ELEMENTS
     const materialOverlay = document.getElementById("materialOverlay");
@@ -299,6 +300,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             selectionList.appendChild(li);
         });
 
+        // Reset checkbox and disable close button each time overlay opens
+        photoCheckbox.checked = false;
+        closeBtn.disabled = true;
+
         // Show overlay
         overlay.classList.remove("d-none");
     });
@@ -306,6 +311,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const downloadPdfBtn = document.getElementById("downloadPdfBtn");
     downloadPdfBtn.addEventListener("click", () => {
         generateClientOrderPDF(shoeImage.src, dataPoints);
+    });
+
+    // Enable close button only when checkbox is checked
+    photoCheckbox.addEventListener("change", () => {
+        closeBtn.disabled = !photoCheckbox.checked;
     });
 
     // Close overlay

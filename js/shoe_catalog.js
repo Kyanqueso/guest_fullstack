@@ -9,8 +9,12 @@ const supabaseUrl = "https://dohhnithtdwtwkfwccag.supabase.co"
 const supabaseKey = "sb_publishable_Tn2EFv2bbXbD9E6OxEwiLQ_VECvXrPr";
 const supabase = createClient(supabaseUrl, supabaseKey)
 
+let currentSort = 'most-expensive';
+let currentSortOrder = 'asc';
+let currentQuery = '';
+
 // Function to fetch and render
-async function fetchAndRenderShoes(sortOrder = 'asc') {
+async function fetchAndRenderShoes(sortOrder = 'asc', query = '') {
     const container = document.getElementById('shoe-container');
 
     // Try cache first
@@ -20,6 +24,7 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
         const { data, error } = await supabase
             .from('shoe_catalog')
             .select('*, shoe_images(*)')
+            .eq('is_visible', true)
 
         if (error) {
             console.error('Error fetching shoes:', error);
@@ -31,6 +36,12 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
         setCache(shoes);
     }
 
+    // Filter by search query (safe: query is never inserted into innerHTML)
+    const q = query.trim().toLowerCase();
+    if (q) {
+        shoes = shoes.filter(shoe => shoe.model_name.toLowerCase().includes(q));
+    }
+
     // Sort client-side
     shoes = [...shoes].sort((a, b) => sortOrder === 'asc' ? a.price - b.price : b.price - a.price);
 
@@ -39,11 +50,15 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
 
     // Show message if no shoes exist
     if (!shoes || shoes.length === 0) {
-        container.innerHTML = `
-            <div class="text-center w-100">
-                <h5 class="text-muted">No shoes available for display yet.</h5>
-            </div>
-        `;
+        const emptyDiv = document.createElement('div');
+        emptyDiv.className = 'text-center w-100';
+        const h5 = document.createElement('h5');
+        h5.className = 'text-muted';
+        h5.textContent = q
+            ? `No shoes found matching "${q}".`
+            : 'No shoes available for display yet.';
+        emptyDiv.appendChild(h5);
+        container.appendChild(emptyDiv);
         return;
     }
 
@@ -98,8 +113,6 @@ async function fetchAndRenderShoes(sortOrder = 'asc') {
 // Execute on load
 fetchAndRenderShoes('asc');
 
-let currentSort = 'most-expensive'; // default
-
 function setActiveDropdownItem(sortType) {
     document.querySelectorAll('.dropdown-item').forEach(item => {
         if (item.getAttribute('data-sort') === sortType) {
@@ -117,15 +130,21 @@ document.querySelectorAll('.dropdown-item').forEach(item => {
         const sortType = e.target.getAttribute('data-sort');
 
         if (sortType === 'most-expensive') {
-            fetchAndRenderShoes('asc');
+            currentSortOrder = 'asc';
         } else if (sortType === 'least-expensive') {
-            fetchAndRenderShoes('desc');
+            currentSortOrder = 'desc';
         }
 
-        // Set active highlight
+        fetchAndRenderShoes(currentSortOrder, currentQuery);
         currentSort = sortType;
         setActiveDropdownItem(sortType);
     });
+});
+
+// Event listener for search input
+document.getElementById('searchInput').addEventListener('input', (e) => {
+    currentQuery = e.target.value;
+    fetchAndRenderShoes(currentSortOrder, currentQuery);
 });
 
 // Initialize default active item
