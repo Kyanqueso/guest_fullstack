@@ -135,7 +135,8 @@
 }
 
 .btn-viber:hover {
-    background-color: #7a2235;
+    background-color: var(--color-primary);
+    cursor: default;
 }
 
 .payment-methods {

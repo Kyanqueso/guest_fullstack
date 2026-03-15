@@ -1,6 +1,6 @@
 // Pinned to exact version to prevent supply-chain attacks via auto-updates
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.49.4'
-import { getCache, setCache } from './cache.js'
+import { getCache, setCache, clearCache } from './cache.js'
 
 // Initialize Supabase
 // CAUTION: In a real browser app, use your ANON public key here.
@@ -8,6 +8,15 @@ import { getCache, setCache } from './cache.js'
 const supabaseUrl = "https://dohhnithtdwtwkfwccag.supabase.co"
 const supabaseKey = "sb_publishable_Tn2EFv2bbXbD9E6OxEwiLQ_VECvXrPr";
 const supabase = createClient(supabaseUrl, supabaseKey)
+
+// Listen for admin changes (show/hide/add/delete shoes) and refresh immediately
+supabase
+    .channel('shoe_catalog_changes')
+    .on('postgres_changes', { event: '*', schema: 'public', table: 'shoe_catalog' }, () => {
+        clearCache();
+        fetchAndRenderShoes(currentSortOrder, currentQuery);
+    })
+    .subscribe();
 
 let currentSort = 'most-expensive';
 let currentSortOrder = 'asc';

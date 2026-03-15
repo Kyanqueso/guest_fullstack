@@ -29,3 +29,7 @@ export function setCache(data) {
         console.log("sessionStorage might be full or unavailable")
     }
 }
+
+export function clearCache() {
+    sessionStorage.removeItem(CACHE_KEY);
+}
