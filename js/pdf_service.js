@@ -100,7 +100,7 @@ export async function generateClientOrderPDF(imageUrl, dataPoints){
     doc.setFontSize(9);
     doc.setTextColor(0, 0, 0);
     doc.text('0922-597-8596', 287, footerY + 6, { align: 'right' });
-    doc.text('Marikina City, Metro Manila', 287, footerY + 12, { align: 'right' });
+    doc.text('fernandovergara1950@gmail.com', 287, footerY + 12, { align: 'right' });
 
     // Order date
     const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });

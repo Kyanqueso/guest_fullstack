@@ -145,13 +145,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     // Dropdowns
     const shoeSizeDropdownBtn = document.getElementById("shoeSizeDropdown");
-    const heelSizeDropdownBtn = document.getElementById("heelSizeDropdown");
+    const heelHeightDropdownBtn = document.getElementById("heelHeightDropdown");
 
     const colorInput = document.getElementById("colorInput");
     const quantityInput = document.getElementById("quantityInput");
 
     const buckleRadios = document.querySelectorAll('input[name="buckle"]');
-    const platformRadios = document.querySelectorAll('input[name="platform"]');
+    const flatformRadios = document.querySelectorAll('input[name="flatform"]');
     const slingbackRadios = document.querySelectorAll('input[name="slingback"]');
 
     const overlay = document.getElementById("selectionOverlay");
@@ -232,11 +232,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         const colorFilled = colorInput.value.trim() !== "";
         const quantityFilled = quantityInput.value.trim() !== "";
         const buckleSelected = isRadioSelected(buckleRadios);
-        const platformSelected = isRadioSelected(platformRadios);
+        const flatformSelected = isRadioSelected(flatformRadios);
         const slingbackSelected = isRadioSelected(slingbackRadios);
 
         // Check all conditions
-        if (materialSelected && moldSelected && heelSelected && colorFilled && quantityFilled && buckleSelected && platformSelected && slingbackSelected) {
+        if (materialSelected && moldSelected && heelSelected && colorFilled && quantityFilled && buckleSelected && flatformSelected && slingbackSelected) {
             submitButton.disabled = false;
         } else {
             submitButton.disabled = true;
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     colorInput.addEventListener("input", checkForm);
     quantityInput.addEventListener("input", checkForm);
     buckleRadios.forEach(r => r.addEventListener("change", checkForm));
-    platformRadios.forEach(r => r.addEventListener("change", checkForm));
+    flatformRadios.forEach(r => r.addEventListener("change", checkForm));
     slingbackRadios.forEach(r => r.addEventListener("change", checkForm));
 
     // Disable button by default on load
@@ -271,10 +271,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             { label: "Shoe Mold",   value: getText(moldBtns) },
             { label: "Shoe Heel",   value: getText(heelBtns) },
             { label: "Shoe Size",   value: shoeSizeDropdownBtn.textContent.trim() },
-            { label: "Heel Size",   value: heelSizeDropdownBtn.textContent.trim() },
+            { label: "Heel Height",   value: heelHeightDropdownBtn.textContent.trim() },
             { label: "Quantity",    value: quantityInput.value },
             { label: "Buckle",      value: getRadio(buckleRadios) },
-            { label: "Platform",    value: getRadio(platformRadios) },
+            { label: "Flatform",    value: getRadio(flatformRadios) },
             { label: "Slingback",   value: getRadio(slingbackRadios) }
         ];
 
