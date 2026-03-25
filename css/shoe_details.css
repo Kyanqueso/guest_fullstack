@@ -1,3 +1,53 @@
+/* --- Shoe details navigation bar --- */
+.details-back-btn {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    color: var(--color-black);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.details-back-btn:hover {
+    background-color: var(--color-black);
+    color: white;
+    border-color: var(--color-black);
+}
+
+.details-browse-group {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-black);
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.details-cycle-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.details-cycle-btn:hover {
+    background-color: rgba(255,255,255,0.12);
+}
+
+.details-cycle-label {
+    color: white;
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
+    border-left: 1px solid rgba(255,255,255,0.15);
+    border-right: 1px solid rgba(255,255,255,0.15);
+    line-height: 2;
+}
+
 #details-bg{
     background: rgba(255, 255, 255, 0.8)
 }
@@ -60,10 +110,12 @@
 /* Material Overlay */
 .overlay-content-1 {
     background: var(--color-white);
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 300px;
-    width: 90%;
+    padding: 28px;
+    border-radius: 12px;
+    max-width: 540px;
+    width: 92%;
+    max-height: 90vh;
+    overflow-y: auto;
     position: relative;
     text-align: center;
 }
