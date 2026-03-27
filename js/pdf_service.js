@@ -1,7 +1,7 @@
 // Pinned to exact version to prevent supply-chain attacks via auto-updates
 import { jsPDF } from 'https://esm.sh/jspdf@3.0.1'
 
-export async function generateClientOrderPDF(imageUrl, dataPoints){
+export async function generateClientOrderPDF(imageUrl, dataPoints, customerName = '', customerContact = ''){
     //A4 landscape document (measured in mm)
     const doc = new jsPDF('landscape', 'mm', 'a4');
 
@@ -58,16 +58,22 @@ export async function generateClientOrderPDF(imageUrl, dataPoints){
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.3);
 
+    let currentRow = 0; // tracks which row we're on
 
-    dataPoints.forEach((item, i) => {
-        const rowY = tableY + (i * rowHeight);
+    // Optional customer info rows — black header style, rendered first
+    const customerRows = [];
+    if (customerName) customerRows.push({ label: 'Customer', value: customerName });
+    if (customerContact) customerRows.push({ label: 'Contact', value: customerContact });
 
-        // Label cell
-        doc.setFillColor(93, 28, 52); //CSS --color-primary: #5D1C34
+    customerRows.forEach((item) => {
+        const rowY = tableY + (currentRow * rowHeight);
+
+        // Label cell — black background instead of red
+        doc.setFillColor(17, 16, 15); // --color-black: #11100F
         doc.rect(tableX, rowY, labelColWidth, rowHeight, 'FD');
 
         // Value cell
-        doc.setFillColor(248, 248, 255); //Ghost White
+        doc.setFillColor(248, 248, 255); // Ghost White
         doc.rect(tableX + labelColWidth, rowY, valueColWidth, rowHeight, 'FD');
 
         // Label text
@@ -80,10 +86,38 @@ export async function generateClientOrderPDF(imageUrl, dataPoints){
         doc.setTextColor(0, 0, 0);
         doc.setFont('helvetica', 'normal');
         doc.text(item.value, tableX + labelColWidth + 3, rowY + 8);
+
+        currentRow++;
+    });
+
+    // Shoe preference rows — red header style
+    dataPoints.forEach((item) => {
+        const rowY = tableY + (currentRow * rowHeight);
+
+        // Label cell — primary red
+        doc.setFillColor(93, 28, 52); // --color-primary: #5D1C34
+        doc.rect(tableX, rowY, labelColWidth, rowHeight, 'FD');
+
+        // Value cell
+        doc.setFillColor(248, 248, 255); // Ghost White
+        doc.rect(tableX + labelColWidth, rowY, valueColWidth, rowHeight, 'FD');
+
+        // Label text
+        doc.setTextColor(255, 255, 255);
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(10);
+        doc.text(item.label, tableX + 3, rowY + 8);
+
+        // Value text
+        doc.setTextColor(0, 0, 0);
+        doc.setFont('helvetica', 'normal');
+        doc.text(item.value, tableX + labelColWidth + 3, rowY + 8);
+
+        currentRow++;
     });
 
     // Footer separator line
-    const footerY = 170;
+    const footerY = tableY + (currentRow * rowHeight) + 6;
     doc.setDrawColor(0, 0, 0);
     doc.setLineWidth(0.3);
     doc.line(10, footerY, 287, footerY);
@@ -107,7 +141,7 @@ export async function generateClientOrderPDF(imageUrl, dataPoints){
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(8);
     doc.setTextColor(120, 120, 120);
-    doc.text('Order Date: ' + today, 148.5, footerY + 24, { align: 'center' });
+    doc.text('Order Date: ' + today, 148.5, footerY + 18, { align: 'center' });
 
     //Trigger download
     doc.save('order-summary.pdf');

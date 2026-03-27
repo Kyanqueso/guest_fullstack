@@ -223,7 +223,9 @@
                 <!-- Quantity -->
                 <div class="mb-4">
                     <h5 class="fw-bold">Quantity</h5>
-                    <input type="number" min="1" max="100" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput">
+                    <input type="number" min="1" max="100" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+
                 </div>
 
                 <!-- Yes or No Radio Buttons -->
@@ -332,6 +334,15 @@
 
                 <!-- Right half: message and checkbox -->
                 <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-start ">
+
+                    <!--Contact Information (Optional)-->
+                    <div class="w-100 mb-3">
+                        <h5 class="fw-bold">Your Contact Info<span class="fw-light text-muted" style="font-size: 0.8rem;">(Optional)</span></h5>
+                        <input type="text" class="form-control mb-2" id="customerName" placeholder="Name" maxlength="50">
+                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number" maxlength="20">
+                    </div>
+
+
                     <h5 class="fw-bold text-start">
                         <img src="../assets/icons/camera.svg" alt="Location" style="width:24px; height:24px; vertical-align:middle;">
                         Please take a picture of your preferences.

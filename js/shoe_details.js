@@ -243,8 +243,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     };
 
-    // Add event listeners for Inputs and Radios
-    colorInput.addEventListener("input", checkForm);
+    // Remove char if not letter, number, or space
+    colorInput.addEventListener("input", () => {
+        colorInput.value = colorInput.value.replace(/[^a-zA-Z0-9\s]/g, '');
+        checkForm();
+    });
+    
     quantityInput.addEventListener("input", checkForm);
     buckleRadios.forEach(r => r.addEventListener("change", checkForm));
     flatformRadios.forEach(r => r.addEventListener("change", checkForm));
@@ -310,7 +314,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const downloadPdfBtn = document.getElementById("downloadPdfBtn");
     downloadPdfBtn.addEventListener("click", () => {
-        generateClientOrderPDF(shoeImage.src, dataPoints);
+        const customerName = document.getElementById("customerName").value.trim()
+        const customerContact = document.getElementById("customerContact").value.trim()
+
+        generateClientOrderPDF(shoeImage.src, dataPoints, customerName, customerContact);
     });
 
     // Enable close button only when checkbox is checked

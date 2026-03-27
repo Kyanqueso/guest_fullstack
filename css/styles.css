@@ -434,3 +434,14 @@ a:hover .shoe-img {
 .image-wrapper:hover::after {
     opacity: 1;
 }
+
+/* Hover Effects for Images in Landing Page */
+
+/* Smooth scale-up effect */
+.landing-hover {
+    transition: transform 0.5s ease;  /* animate zoom by 0.5secs */
+}
+
+.landing-hover:hover {
+    transform: scale(1.20);  /* zoom by 20% */
+}
