@@ -63,7 +63,7 @@ export async function generateClientOrderPDF(imageUrl, dataPoints, customerName 
     // Optional customer info rows — black header style, rendered first
     const customerRows = [];
     if (customerName) customerRows.push({ label: 'Customer', value: customerName });
-    if (customerContact) customerRows.push({ label: 'Contact', value: customerContact });
+    if (customerContact) customerRows.push({ label: 'Contact Number', value: customerContact });
 
     customerRows.forEach((item) => {
         const rowY = tableY + (currentRow * rowHeight);

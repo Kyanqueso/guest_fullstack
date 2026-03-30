@@ -347,11 +347,17 @@
                 <!-- Right half: message and checkbox -->
                 <div class="col-12 col-md-6 d-flex flex-column align-items-center justify-content-start ">
 
-                    <!--Contact Information (Optional)-->
+                    <!--Contact Number (Optional) -->
                     <div class="w-100 mb-3">
                         <h5 class="fw-bold">Your Contact Info<span class="fw-light text-muted" style="font-size: 0.8rem;">(Optional)</span></h5>
-                        <input type="text" class="form-control mb-2" id="customerName" placeholder="Name" maxlength="50">
-                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number" maxlength="20">
+                        
+                          <!-- Lettes/Spaces/Hyphens/Apostrophes only-->                                                                                                                              
+                        <input type="text" class="form-control mb-2" id="customerName" placeholder="Your Name" maxlength="50"
+                            oninput="this.value = this.value.replace(/[^a-zA-Z\s\-']/g, '')">
+
+                        <!-- Digit/Spaces/Plus/Dash/Parenthesis only -->                                                                                                                                                 
+                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number" maxlength="20"                                                                                                                          
+                            oninput="this.value = this.value.replace(/[^0-9\s+\-()]/g, '')">
                     </div>
 
 
