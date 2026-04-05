@@ -357,9 +357,9 @@
                         <input type="text" class="form-control mb-2" id="customerName" placeholder="Your Name" maxlength="50"
                             oninput="this.value = this.value.replace(/[^a-zA-Z\s\-']/g, '')">
 
-                        <!-- Digit/Spaces/Plus/Dash/Parenthesis only -->                                                                                                                                                 
-                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number" maxlength="20"                                                                                                                          
-                            oninput="this.value = this.value.replace(/[^0-9\s+\-()]/g, '')">
+                        <!-- Digits only, max 11 -->
+                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number (11 digits)" maxlength="11"
+                            oninput="this.value = this.value.replace(/\D/g, '').slice(0, 11)">
                     </div>
 
 
