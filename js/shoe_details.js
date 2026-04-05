@@ -251,7 +251,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         checkForm();
     });
     
-    quantityInput.addEventListener("input", checkForm);
+    quantityInput.addEventListener("input", () => {
+        // Remove non-digit characters
+        quantityInput.value = quantityInput.value.replace(/\D/g, '');
+
+        // Clamp value to 1-1000
+        if (quantityInput.value !== "") {
+            let val = parseInt(quantityInput.value, 10);
+            if (val > 1000) val = 1000;
+            if (val < 1) val = 1;
+            quantityInput.value = val;
+        }
+
+        checkForm(); // update submit button
+    });
     buckleRadios.forEach(r => r.addEventListener("change", checkForm));
     flatformRadios.forEach(r => r.addEventListener("change", checkForm));
     slingbackRadios.forEach(r => r.addEventListener("change", checkForm));

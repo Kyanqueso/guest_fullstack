@@ -93,6 +93,10 @@
     background-color: var(--color-white);
 }
 
+.dropdown-item {
+    cursor: pointer;
+}
+
 /* Overlay Styles */
 .overlay {
     position: fixed;
