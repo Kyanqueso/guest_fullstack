@@ -230,7 +230,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const moldSelected = isBtnGroupSelected(moldBtns);
         const heelSelected = isBtnGroupSelected(heelBtns);
         const colorFilled = colorInput.value.trim() !== "";
-        const quantityFilled = quantityInput.value.trim() !== "";
+        // Quantity must be a whole number between 1 and 1000 (inclusive)
+        const qty = parseInt(quantityInput.value, 10);
+        const quantityFilled = !isNaN(qty) && qty >= 1 && qty <= 1000;
         const buckleSelected = isRadioSelected(buckleRadios);
         const flatformSelected = isRadioSelected(flatformRadios);
         const slingbackSelected = isRadioSelected(slingbackRadios);

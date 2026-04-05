@@ -235,8 +235,10 @@
                 <!-- Quantity -->
                 <div class="mb-4">
                     <h5 class="fw-bold">Quantity</h5>
-                    <input type="number" min="1" max="100" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    <input type="number" min="1" max="1000" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        aria-describedby="quantityHint">
+                    <small id="quantityHint" class="text-muted">Max: 1000</small>
 
                 </div>
 
