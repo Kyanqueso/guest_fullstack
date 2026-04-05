@@ -46,11 +46,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!allShoes) return;
 
+    // Reject if id is missing or contains any non-digit character
+    if (!shoeId || !/^\d+$/.test(shoeId)) {
+        window.location.replace('/error404.html');
+        return;
+    }
+
     const shoeIdNum = parseInt(shoeId, 10);
     const shoeIds = allShoes.map(s => s.shoe_catalog_id).sort((a, b) => a - b);
     let currentIndex = shoeIds.findIndex(id => id === shoeIdNum);
 
-    if (currentIndex === -1) currentIndex = 0;
+    if (currentIndex === -1) {
+        window.location.replace('/error404.html');
+        return;
+    }
 
     function goToShoe(index) {
         const newId = shoeIds[index];
