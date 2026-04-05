@@ -121,7 +121,8 @@
 }
 
 .btn-viber {
-    background-color: var(--color-primary);
+    /* No background — this is informational text, not a clickable button */
+    background-color: transparent;
     color: var(--color-white);
     text-decoration: none;
     padding: 20px 30px;
@@ -131,11 +132,10 @@
     border-radius: 10px;
     margin-bottom: 30px;
     display: inline-block;
-    transition: background 0.3s;
 }
 
 .btn-viber:hover {
-    background-color: var(--color-primary);
+    background-color: transparent;
     cursor: default;
 }
 

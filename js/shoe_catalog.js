@@ -101,7 +101,7 @@ async function fetchAndRenderShoes(sortOrder = 'asc', query = '') {
         textDiv.className = 'd-flex flex-column p-3 text-center';
 
         const nameEl = document.createElement('h3');
-        nameEl.className = 'fw-bold mb-1';
+        nameEl.className = 'fw-bold mb-1 shoe-name';  // shoe-name handles overflow truncation
         nameEl.textContent = shoe.model_name;
 
         const priceEl = document.createElement('p');

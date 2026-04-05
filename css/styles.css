@@ -342,6 +342,14 @@ footer hr {
 
 /* ------ Shoe Catalog Styles ------ */
 
+/* Prevent long shoe names from overflowing the card; show ellipsis instead */
+.shoe-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
 #filterDropdown, #filterDropdown + .dropdown-menu .dropdown-divider {
     margin: 0;     /* smaller gap if needed */
 }
