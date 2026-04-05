@@ -1,0 +1,206 @@
+
+/* --- Hero Section with Card --- */
+.hero-section {
+    background: url('../assets/images/contact-bg.jpg') no-repeat center center/cover;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.guide-card {
+    background-color: var(--color-accent);
+    padding: 50px;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.sub-headline {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.headline {
+    color: var(--color-primary);
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent; /* Optional styling */
+}
+
+/* Steps List */
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.step-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-right: 25px;
+    width: 50px; /* Fixed width to align text */
+    flex-shrink: 0;
+}
+
+.step-content h3 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* --- Contact Section --- */
+.contact-section {
+    position: relative;
+    color: var(--color-white);
+    text-align: center;
+    overflow: hidden;
+}
+
+.contac-container {
+    /* Calculate height: 100% of viewport minus 80px for the navbar */
+    height: calc(100vh - 80px); 
+    margin-top: 80px; /* Push it down so it doesn't hide behind the navbar */
+    overflow-y: auto; /* This allows scrolling inside this specific container */
+    overflow-x: hidden;
+}
+
+/* Creating a pseudo-element specifically for the background image */
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* The image is defined here now */
+    background: url('../assets/images/contact-page1.jpg') no-repeat center center/cover;
+    /* Applying Grayscale (B&W) and Blur */
+    filter: grayscale(100%) blur(4px);
+    /* A slight scale is often needed with blur to hide soft edges at the border */
+    transform: scale(1.02);
+    /* Ensure it sits behind the overlay and content */
+    z-index: 0;
+}
+
+.overlay {
+    /* The dark tint overlay sits on top of the blurred image */
+    background: rgba(0, 0, 0, 0.6);
+    padding: 80px 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* IMPORTANT: Position relative and higher z-index keeps text sharp on top */
+    position: relative;
+    z-index: 1;
+}
+
+.contact-title {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 0.9;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.btn-viber {
+    /* No background — this is informational text, not a clickable button */
+    background-color: transparent;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 20px 30px;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.btn-viber:hover {
+    background-color: transparent;
+    cursor: default;
+}
+
+.payment-methods {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px; /* Adds a little space above the logos */
+}
+
+.pay-logo-img {
+    /* This forces the height to be small */
+    height: 40px; 
+    width: auto;
+    object-fit: contain;
+}
+
+.divider {
+    font-size: 2rem; 
+    color: var(--text);
+    line-height: 1; /* Fixes vertical alignment */
+}
+
+.small-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 250%;
+    text-align: center;
+    letter-spacing: 0.05rem;
+}
+
+.contact-person {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 120%; /* or 29px */
+    text-align: center;
+    letter-spacing: -0.03em;
+}
+
+.contact-person strong {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contact-person i {
+    color: #a64ca6; /* Viber purple hue */
+    margin-right: 5px;
+}
+
+.location {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 3rem;
+    }
+    .btn-viber{
+        font-size: 1.5rem;
+    }
+}
