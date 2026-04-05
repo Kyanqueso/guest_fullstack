@@ -97,8 +97,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Helga</button>
                             <button class="no-design mt-1"
-                                    data-text="Helga Material Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Helga Material Colors"
+                                    data-img="../assets/images/materials/Helga.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -107,8 +107,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Snake</button>
                             <button class="no-design mt-1"
-                                    data-text="Snake Skin Material Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Snake Skin Material Colors"
+                                    data-img="../assets/images/materials/SnakeSkin.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -117,8 +117,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Patent</button>
                             <button class="no-design mt-1"
-                                    data-text="Patent Leather Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Patent Leather Colors"
+                                    data-img="../assets/images/materials/Patent.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -127,8 +127,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Tanya</button>
                             <button class="no-design mt-1"
-                                    data-text="Tanya Material Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Tanya Material Colors"
+                                    data-img="../assets/images/materials/Tanya.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -235,8 +235,10 @@
                 <!-- Quantity -->
                 <div class="mb-4">
                     <h5 class="fw-bold">Quantity</h5>
-                    <input type="number" min="1" max="100" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput"
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+                    <input type="number" min="1" max="1000" step="1" style="border: 1px solid black;" class="form-control w-50" id="quantityInput"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                        aria-describedby="quantityHint">
+                    <small id="quantityHint" class="text-muted">Max: 1000</small>
 
                 </div>
 
@@ -382,6 +384,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="imageLightbox" class="lightbox d-none" role="dialog" aria-modal="true" aria-label="Zoomed shoe image">
+        <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
+        <img id="lightboxImg" class="lightbox-img" alt="Zoomed shoe image" draggable="false">
     </div>
 
     <!-- Call Javascript -->

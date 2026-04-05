@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Prevents clickjacking by blocking this page from being embedded in iframes -->
+    <meta http-equiv="X-Frame-Options" content="DENY">
+
+    <!-- Import CSS Files and Local Bootstrap -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+
+    <title>404 — Page Not Found | Theresa Shoes</title>
+
+    <style>
+        /* ---- 404 Page Styles ---- */
+        .error-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-accent);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* Large decorative "404" number */
+        .error-code {
+            font-family: 'Playfair Display', serif;
+            font-size: 10rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--color-primary);
+            /* Subtle text shadow for depth */
+            text-shadow: 3px 4px 8px rgba(93, 28, 52, 0.15);
+        }
+
+        .error-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-black);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .error-message {
+            font-size: 1rem;
+            color: #555; /* #555 on --color-accent gives ~5.5:1 contrast, passing WCAG AA */
+            max-width: 420px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        /* Divider bar below the 404 number */
+        .error-divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--color-primary);
+            margin: 20px auto 28px;
+            border: none;
+        }
+
+        .btn-home {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 12px 36px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-home:hover {
+            background-color: #7A2948;
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        /* Visible focus ring for keyboard navigation */
+        .btn-home:focus-visible {
+            outline: 3px solid var(--color-primary);
+            outline-offset: 4px;
+        }
+
+        /* Offset main content below the fixed header on desktop (≥768px) */
+        @media (min-width: 768px) {
+            .error-section {
+                padding-top: 130px; /* ~70px header height + original 60px padding */
+            }
+        }
+
+        /* Tablet: intermediate font size (576px–992px) */
+        @media (max-width: 992px) {
+            .error-code {
+                font-size: 8rem;
+            }
+        }
+
+        /* Mobile: scale down further */
+        @media (max-width: 576px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            .error-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- HEADER and Navigation -->
+    <header class="position-relative position-md-fixed top-0 w-100" style="z-index: 100;">
+        <ul class="nav w-100 px-3 py-2 flex-column flex-md-row align-items-center justify-content-between"
+            style="background-color: var(--color-primary);">
+
+            <!-- Brand -->
+            <li class="nav-item">
+                <h1 class="header-text mb-2 mb-md-0 ps-md-5 text-white text-center text-lg-start">
+                    Theresa Shoes
+                </h1>
+            </li>
+
+            <!-- Nav links wrapper -->
+            <li class="nav-item">
+                <ul class="nav flex-column flex-md-row justify-content-center gap-lg-4 fs-5">
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="pages/shoe_catalog.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="pages/contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center" href="pages/about_us.html">About Us</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <!-- 404 Content -->
+    <main class="error-section">
+        <!-- aria-hidden: purely decorative — screen readers get the h2 "Page Not Found" instead -->
+        <p class="error-code" aria-hidden="true">404</p>
+        <hr class="error-divider">
+        <h2 class="error-title">Page Not Found</h2>
+        <p class="error-message">
+            The page you're looking for doesn't exist or may have been moved.
+            Let's get you back to finding your perfect pair.
+        </p>
+        <a href="index.html" class="btn-home">Back to Home</a>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="w-100 p-3" style="background-color: var(--color-black);">
+            <div class="d-flex flex-column flex-md-row">
+                <div class="w-100 w-md-50 p-3">
+                    <h4 class="header-text text-white">Theresa Shoes</h4>
+                    <p class="pt-2">Crafting quality footwear since our establishment. Each pair is made with dedication to style, comfort, and lasting quality.</p>
+                </div>
+
+                <div class="w-100 w-md-50 p-3">
+                    <h4 class="header-text text-white">Get in touch</h4>
+                    <p>
+                        <img src="assets/icons/location.svg" alt="Location" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        Marikina City, Metro Manila
+                    </p>
+                    <p>
+                        <img src="assets/icons/phone.svg" alt="Phone" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        0922-597-8596
+                    </p>
+                    <p>
+                        <img src="assets/icons/mail.svg" alt="Email" style="width:16px; height:16px; margin-right:8px; vertical-align:middle;">
+                        fernandovergara1950@gmail.com
+                    </p>
+                </div>
+            </div>
+            <hr class="w-75 mx-auto">
+            <p class="text-center">© 2025 Maria Theresa Shoes. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Local Bootstrap JS -->
+    <script src="assets/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>

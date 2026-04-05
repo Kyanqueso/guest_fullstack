@@ -135,7 +135,119 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     fetchShoeDetails();
-    
+
+    // ---- Lightbox ----
+    const lbEl      = document.getElementById('imageLightbox');
+    const lbImg     = document.getElementById('lightboxImg');
+    const lbClose   = document.getElementById('lightboxClose');
+    let lbScale = 1, lbTx = 0, lbTy = 0;
+    let lbDragging = false, lbStartX = 0, lbStartY = 0;
+    const LB_MIN = 0.5, LB_MAX = 5;
+
+    const lbApply = () => {
+        lbImg.style.transform = `translate(calc(-50% + ${lbTx}px), calc(-50% + ${lbTy}px)) scale(${lbScale})`;
+    };
+
+    const lbOpen = (src) => {
+        lbImg.src = src;
+        lbScale = 1; lbTx = 0; lbTy = 0;
+        lbApply();
+        lbEl.classList.remove('d-none');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const lbCloseHandler = () => {
+        lbEl.classList.add('d-none');
+        document.body.style.overflow = '';
+    };
+
+    // Zoom toward cursor on wheel
+    lbEl.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 1.12 : 1 / 1.12;
+        const newScale = Math.min(LB_MAX, Math.max(LB_MIN, lbScale * factor));
+        const cx = e.clientX - window.innerWidth / 2;
+        const cy = e.clientY - window.innerHeight / 2;
+        lbTx = cx - (cx - lbTx) * (newScale / lbScale);
+        lbTy = cy - (cy - lbTy) * (newScale / lbScale);
+        lbScale = newScale;
+        lbApply();
+    }, { passive: false });
+
+    // Mouse pan
+    lbImg.addEventListener('mousedown', (e) => {
+        lbDragging = true;
+        lbStartX = e.clientX - lbTx;
+        lbStartY = e.clientY - lbTy;
+        lbImg.classList.add('dragging');
+        e.preventDefault();
+    });
+    window.addEventListener('mousemove', (e) => {
+        if (!lbDragging) return;
+        lbTx = e.clientX - lbStartX;
+        lbTy = e.clientY - lbStartY;
+        lbApply();
+    });
+    window.addEventListener('mouseup', () => {
+        if (!lbDragging) return;
+        lbDragging = false;
+        lbImg.classList.remove('dragging');
+    });
+
+    // Touch: pan + pinch-zoom
+    let lbLastDist = 0;
+    lbImg.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        if (e.touches.length === 1) {
+            lbDragging = true;
+            lbStartX = e.touches[0].clientX - lbTx;
+            lbStartY = e.touches[0].clientY - lbTy;
+        } else if (e.touches.length === 2) {
+            lbDragging = false;
+            lbLastDist = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+        }
+    }, { passive: false });
+    lbImg.addEventListener('touchmove', (e) => {
+        e.preventDefault();
+        if (e.touches.length === 1 && lbDragging) {
+            lbTx = e.touches[0].clientX - lbStartX;
+            lbTy = e.touches[0].clientY - lbStartY;
+            lbApply();
+        } else if (e.touches.length === 2) {
+            const dist = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+            const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+            const newScale = Math.min(LB_MAX, Math.max(LB_MIN, lbScale * (dist / lbLastDist)));
+            const cx = midX - window.innerWidth / 2;
+            const cy = midY - window.innerHeight / 2;
+            lbTx = cx - (cx - lbTx) * (newScale / lbScale);
+            lbTy = cy - (cy - lbTy) * (newScale / lbScale);
+            lbScale = newScale;
+            lbLastDist = dist;
+            lbApply();
+        }
+    }, { passive: false });
+    lbImg.addEventListener('touchend', (e) => {
+        if (e.touches.length < 1) lbDragging = false;
+        if (e.touches.length < 2) lbLastDist = 0;
+    });
+
+    // Close on backdrop click, button, or Escape
+    lbEl.addEventListener('click', (e) => { if (e.target === lbEl) lbCloseHandler(); });
+    lbClose.addEventListener('click', lbCloseHandler);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !lbEl.classList.contains('d-none')) lbCloseHandler();
+    });
+
+    shoeImage.addEventListener('click', () => lbOpen(shoeImage.src));
+    // ---- End Lightbox ----
+
     // SELECT DOM ELEMENTS
     const submitButton = document.getElementById("submitBtn");
 
@@ -230,7 +342,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         const moldSelected = isBtnGroupSelected(moldBtns);
         const heelSelected = isBtnGroupSelected(heelBtns);
         const colorFilled = colorInput.value.trim() !== "";
-        const quantityFilled = quantityInput.value.trim() !== "";
+        // Quantity must be a whole number between 1 and 1000 (inclusive)
+        const qty = parseInt(quantityInput.value, 10);
+        const quantityFilled = !isNaN(qty) && qty >= 1 && qty <= 1000;
         const buckleSelected = isRadioSelected(buckleRadios);
         const flatformSelected = isRadioSelected(flatformRadios);
         const slingbackSelected = isRadioSelected(slingbackRadios);
@@ -249,7 +363,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         checkForm();
     });
     
-    quantityInput.addEventListener("input", checkForm);
+    quantityInput.addEventListener("input", () => {
+        // Remove non-digit characters
+        quantityInput.value = quantityInput.value.replace(/\D/g, '');
+
+        // Clamp value to 1-1000
+        if (quantityInput.value !== "") {
+            let val = parseInt(quantityInput.value, 10);
+            if (val > 1000) val = 1000;
+            if (val < 1) val = 1;
+            quantityInput.value = val;
+        }
+
+        checkForm(); // update submit button
+    });
     buckleRadios.forEach(r => r.addEventListener("change", checkForm));
     flatformRadios.forEach(r => r.addEventListener("change", checkForm));
     slingbackRadios.forEach(r => r.addEventListener("change", checkForm));
