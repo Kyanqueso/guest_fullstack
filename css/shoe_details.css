@@ -149,6 +149,10 @@
     margin-bottom: 0.5rem;
 }
 
+#pageLoader {
+    background-color: var(--color-accent);
+}
+
 .text-smaller{
     font-size: 0.7rem;
 }
