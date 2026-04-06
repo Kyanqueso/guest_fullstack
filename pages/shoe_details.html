@@ -47,8 +47,13 @@
         </ul>
     </header>
 
+    <!-- Loading -->
+     <div id="pageLoader" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="spinner-border text-dark"></div>
+    </div>
+
     <!-- Main Content Area -->
-    <main class="flex-grow-1" style="background-color: var(--color-accent);">
+    <main id="mainContent" class="flex-grow-1 d-none" style="background-color: var(--color-accent);">
         <div class="d-flex justify-content-between align-items-center px-3 px-md-5 py-3">
             <!-- Back to catalog -->
             <a href="shoe_catalog.html" class="btn details-back-btn d-flex align-items-center gap-2 px-3 py-2">
