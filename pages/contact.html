@@ -97,7 +97,7 @@
                 
                 <h2 class="contact-title">WANT TO<br>CONTACT US?</h2>
                 
-                <a class="btn-viber">CONTACT US THROUGH VIBER</a>
+                <a class="btn-viber" href="viber://chat?number=%2B639225978596" onclick="handleViberClick(event)">CONTACT US THROUGH VIBER</a>
 
                 <div class="payment-methods">
                     <img src="../assets/images/bdo-logo-img.png" alt="BDO" class="pay-logo-img">
@@ -156,5 +156,23 @@
 
     <!-- Call Javascript -->
     <script src="../assets/bootstrap/bootstrap.bundle.min.js"></script>
+    <script>
+        function handleViberClick(e) {
+            e.preventDefault();
+            window.location.href = 'viber://chat?number=%2B639225978596';
+
+            // If Viber opens, the tab goes into the background (hidden).
+            // If it doesn't open, the tab stays visible — redirect to download page.
+            const fallbackTimer = setTimeout(() => {
+                if (!document.hidden) {
+                    window.open('https://www.viber.com/download/', '_blank', 'noopener,noreferrer');
+                }
+            }, 1500);
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) clearTimeout(fallbackTimer);
+            }, { once: true });
+        }
+    </script>
 </body>
 </html>

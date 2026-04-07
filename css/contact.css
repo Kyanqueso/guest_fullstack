@@ -122,7 +122,7 @@
 
 .btn-viber {
     /* No background — this is informational text, not a clickable button */
-    background-color: transparent;
+    background-color: var(--color-primary);
     color: var(--color-white);
     text-decoration: none;
     padding: 20px 30px;
@@ -135,8 +135,7 @@
 }
 
 .btn-viber:hover {
-    background-color: transparent;
-    cursor: default;
+    cursor: pointer;
 }
 
 .payment-methods {
