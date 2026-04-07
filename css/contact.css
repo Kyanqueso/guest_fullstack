@@ -138,6 +138,10 @@
     cursor: pointer;
 }
 
+.btn-viber:active {
+    transform: scale(0.97);
+}
+
 .payment-methods {
     display: flex;
     align-items: center;
