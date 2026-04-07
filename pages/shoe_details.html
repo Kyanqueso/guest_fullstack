@@ -47,8 +47,14 @@
         </ul>
     </header>
 
+    <!-- Loading -->
+     <div id="pageLoader" class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="spinner-border text-dark"></div>
+        <p id="loaderText" class="mt-3 small text-muted">Loading shoes...</p>
+    </div>
+
     <!-- Main Content Area -->
-    <main class="flex-grow-1" style="background-color: var(--color-accent);">
+    <main id="mainContent" class="flex-grow-1 d-none" style="background-color: var(--color-accent);">
         <div class="d-flex justify-content-between align-items-center px-3 px-md-5 py-3">
             <!-- Back to catalog -->
             <a href="shoe_catalog.html" class="btn details-back-btn d-flex align-items-center gap-2 px-3 py-2">
@@ -97,8 +103,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Helga</button>
                             <button class="no-design mt-1"
-                                    data-text="Helga Material Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Helga Material Colors"
+                                    data-img="../assets/images/materials/Helga.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -107,8 +113,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Snake</button>
                             <button class="no-design mt-1"
-                                    data-text="Snake Skin Material Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Snake Skin Material Colors"
+                                    data-img="../assets/images/materials/SnakeSkin.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -117,8 +123,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Patent</button>
                             <button class="no-design mt-1"
-                                    data-text="Patent Leather Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Patent Leather Colors"
+                                    data-img="../assets/images/materials/Patent.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -127,8 +133,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Tanya</button>
                             <button class="no-design mt-1"
-                                    data-text="Tanya Material Colors" 
-                                    data-img="../assets/images/patent-leather-colors.png">
+                                    data-text="Tanya Material Colors"
+                                    data-img="../assets/images/materials/Tanya.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
                         </div>
@@ -357,9 +363,9 @@
                         <input type="text" class="form-control mb-2" id="customerName" placeholder="Your Name" maxlength="50"
                             oninput="this.value = this.value.replace(/[^a-zA-Z\s\-']/g, '')">
 
-                        <!-- Digit/Spaces/Plus/Dash/Parenthesis only -->                                                                                                                                                 
-                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number" maxlength="20"                                                                                                                          
-                            oninput="this.value = this.value.replace(/[^0-9\s+\-()]/g, '')">
+                        <!-- Digits only, max 11 -->
+                        <input type="tel" class="form-control" id="customerContact" placeholder="Contact Number (11 digits)" maxlength="11"
+                            oninput="this.value = this.value.replace(/\D/g, '').slice(0, 11)">
                     </div>
 
 
@@ -384,6 +390,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div id="imageLightbox" class="lightbox d-none" role="dialog" aria-modal="true" aria-label="Zoomed shoe image">
+        <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
+        <img id="lightboxImg" class="lightbox-img" alt="Zoomed shoe image" draggable="false">
     </div>
 
     <!-- Call Javascript -->
