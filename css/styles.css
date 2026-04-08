@@ -453,3 +453,46 @@ a:hover .shoe-img {
 .landing-hover:hover {
     transform: scale(1.20);  /* zoom by 20% */
 }
+
+/* Women's Selection Infinite Scroll Carousel */
+.women-carousel-wrapper {
+    overflow: hidden;
+}
+
+.women-carousel-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: women-scroll 18s linear infinite;
+}
+
+.women-carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.women-carousel-img {
+    width: 400px;
+    height: 296px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Scroll by exactly 50% — the width of the original 4 images */
+@keyframes women-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .women-carousel-img {
+        width: 320px;
+        height: 260px;
+    }
+}
+
+@media (max-width: 576px) {
+    .women-carousel-img {
+        width: 240px;
+        height: 210px;
+    }
+}

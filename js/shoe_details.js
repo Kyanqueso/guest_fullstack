@@ -474,8 +474,9 @@
             closeBtn.disabled = !photoCheckbox.checked;
         });
 
-        // Close overlay
+        // Close overlay and go to the Viber button on the contact page
         closeBtn.addEventListener("click", () => {
             overlay.classList.add("d-none");
+            window.location.href = 'contact.html#viber-cta';
         });
     };
