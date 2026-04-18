@@ -121,6 +121,16 @@
             shoeName.textContent = shoe.model_name;
             shoePrice.textContent = `₱${shoe.price}`;
 
+            // Populate description
+            const descBlock = document.getElementById("shoeDescriptionBlock");
+            const descText = document.getElementById("shoeDescription");
+            if (shoe.description && shoe.description.trim()) {
+                descText.textContent = shoe.description;
+                descBlock.classList.remove("d-none");
+            } else {
+                descBlock.classList.add("d-none");
+            }
+
             // Sort images by display_order
             const images = shoe.shoe_images || [];
             images.sort((a, b) => a.display_order - b.display_order);
