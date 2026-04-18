@@ -97,6 +97,57 @@
     cursor: pointer;
 }
 
+/* Color Swatches Grid */
+.color-swatches-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    padding: 4px 0 8px;
+}
+
+.color-swatch-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: transparent;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    min-width: 52px;
+}
+
+.color-swatch-item:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.color-swatch-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+.color-swatch-code {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--color-black);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.color-swatch-name {
+    font-size: 0.58rem;
+    color: #666;
+    text-align: center;
+    line-height: 1.2;
+}
+
 /* Overlay Styles */
 .overlay {
     position: fixed;

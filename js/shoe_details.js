@@ -302,6 +302,67 @@
         // MATERIAL INFO ICON BUTTONS
         const infoButtons = document.querySelectorAll(".no-design");
 
+        const MATERIAL_COLORS = {
+            Helga: [
+                { code: 'H01', hex: '#1C1C1C', name: 'Black' },
+                { code: 'H02', hex: '#6B2B2B', name: 'Maroon' },
+                { code: 'H03', hex: '#B5522A', name: 'Rust' },
+                { code: 'H04', hex: '#8B6040', name: 'Brown' },
+                { code: 'H05', hex: '#C4A878', name: 'Tan' },
+                { code: 'H06', hex: '#F0E8D8', name: 'Cream' },
+                { code: 'H07', hex: '#E8C4BC', name: 'Blush' },
+                { code: 'H08', hex: '#C89898', name: 'Mauve' },
+                { code: 'H09', hex: '#A090B0', name: 'Lavender' },
+                { code: 'H10', hex: '#A0A0A0', name: 'Gray' },
+                { code: 'H11', hex: '#A07860', name: 'Taupe' },
+                { code: 'H12', hex: '#C4904C', name: 'Caramel' },
+                { code: 'H13', hex: '#D4A828', name: 'Mustard' },
+            ],
+            Snake: [
+                { code: 'S01', hex: '#1A1A1A', name: 'Black' },
+                { code: 'S02', hex: '#C4A060', name: 'Rose Gold' },
+                { code: 'S03', hex: '#7A1820', name: 'Burgundy' },
+                { code: 'S04', hex: '#2C1848', name: 'Deep Purple' },
+                { code: 'S05', hex: '#1C2878', name: 'Cobalt Blue' },
+                { code: 'S06', hex: '#D0BC78', name: 'Champagne' },
+                { code: 'S07', hex: '#C0C8D0', name: 'Silver' },
+                { code: 'S08', hex: '#B0C0D8', name: 'Periwinkle' },
+                { code: 'S09', hex: '#D0B898', name: 'Beige' },
+                { code: 'S10', hex: '#D4A8A8', name: 'Blush Pink' },
+            ],
+            Patent: [
+                { code: 'P01', hex: '#E8C8A8', name: 'Nude' },
+                { code: 'P02', hex: '#C0C0C8', name: 'Silver' },
+                { code: 'P03', hex: '#787878', name: 'Gunmetal' },
+                { code: 'P04', hex: '#8B4828', name: 'Cognac' },
+                { code: 'P05', hex: '#1C2858', name: 'Navy' },
+                { code: 'P06', hex: '#F0B4BC', name: 'Light Pink' },
+                { code: 'P07', hex: '#C8A0A8', name: 'Rose Gold' },
+                { code: 'P08', hex: '#CC1818', name: 'Red' },
+                { code: 'P09', hex: '#E03030', name: 'Bright Red' },
+                { code: 'P10', hex: '#D4A818', name: 'Mustard' },
+                { code: 'P11', hex: '#40B8B0', name: 'Teal' },
+                { code: 'P12', hex: '#A8D0E8', name: 'Sky Blue' },
+                { code: 'P13', hex: '#7858A0', name: 'Purple' },
+                { code: 'P14', hex: '#5A3020', name: 'Dark Brown' },
+                { code: 'P15', hex: '#D87858', name: 'Coral' },
+                { code: 'P16', hex: '#F5F0E8', name: 'Ivory' },
+                { code: 'P17', hex: '#D87028', name: 'Orange' },
+            ],
+            Tanya: [
+                { code: 'T01', hex: '#1C1C1C', name: 'Black' },
+                { code: 'T02', hex: '#4A2C1C', name: 'Dark Brown' },
+                { code: 'T03', hex: '#C8A080', name: 'Rose Gold' },
+                { code: 'T04', hex: '#F5F5F0', name: 'White' },
+                { code: 'T05', hex: '#C0B8B0', name: 'Taupe' },
+                { code: 'T06', hex: '#C05030', name: 'Rust' },
+                { code: 'T07', hex: '#D89020', name: 'Mustard' },
+                { code: 'T08', hex: '#4A6040', name: 'Olive' },
+                { code: 'T09', hex: '#C82020', name: 'Red' },
+                { code: 'T10', hex: '#781830', name: 'Wine' },
+            ],
+        };
+
         // Function to handle Single Selection Button Groups
         const setupButtonGroup = (buttons) => {
             buttons.forEach(btn => {
@@ -321,13 +382,50 @@
         setupButtonGroup(moldBtns);
         setupButtonGroup(heelBtns);
 
+        const overlaySwatches = document.getElementById("overlaySwatches");
+
         infoButtons.forEach(btn => {
             btn.addEventListener("click", () => {
                 const text = btn.dataset.text;
                 const img = btn.dataset.img;
+                const material = btn.dataset.material;
 
                 overlayText.textContent = text;
                 overlayImage.src = img;
+
+                // Render color swatches
+                overlaySwatches.innerHTML = '';
+                const colors = MATERIAL_COLORS[material] || [];
+                colors.forEach(color => {
+                    const item = document.createElement('button');
+                    item.className = 'color-swatch-item';
+                    item.title = `${color.code} — ${color.name} (${color.hex})`;
+
+                    const circle = document.createElement('div');
+                    circle.className = 'color-swatch-circle';
+                    circle.style.backgroundColor = color.hex;
+
+                    const code = document.createElement('span');
+                    code.className = 'color-swatch-code';
+                    code.textContent = color.code;
+
+                    const name = document.createElement('span');
+                    name.className = 'color-swatch-name';
+                    name.textContent = color.name;
+
+                    item.appendChild(circle);
+                    item.appendChild(code);
+                    item.appendChild(name);
+
+                    // Click swatch → fill color input and close overlay
+                    item.addEventListener('click', () => {
+                        colorInput.value = color.code;
+                        colorInput.dispatchEvent(new Event('input'));
+                        materialOverlay.classList.add('d-none');
+                    });
+
+                    overlaySwatches.appendChild(item);
+                });
 
                 materialOverlay.classList.remove("d-none");
             });

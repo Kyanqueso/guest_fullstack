@@ -103,7 +103,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Helga</button>
                             <button class="no-design mt-1"
-                                    data-text="Helga Material Colors"
+                                    data-text="Helga Leather Colors"
+                                    data-material="Helga"
                                     data-img="../assets/images/materials/Helga.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
@@ -113,7 +114,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Snake</button>
                             <button class="no-design mt-1"
-                                    data-text="Snake Skin Material Colors"
+                                    data-text="Snake Skin Colors"
+                                    data-material="Snake"
                                     data-img="../assets/images/materials/SnakeSkin.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
@@ -124,6 +126,7 @@
                             <button class="btn material-btn w-100">Patent</button>
                             <button class="no-design mt-1"
                                     data-text="Patent Leather Colors"
+                                    data-material="Patent"
                                     data-img="../assets/images/materials/Patent.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
@@ -133,7 +136,8 @@
                         <div class="col-6 col-lg-3 text-center">
                             <button class="btn material-btn w-100">Tanya</button>
                             <button class="no-design mt-1"
-                                    data-text="Tanya Material Colors"
+                                    data-text="Tanya Leather Colors"
+                                    data-material="Tanya"
                                     data-img="../assets/images/materials/Tanya.JPG">
                                 <img src="../assets/icons/circle-info.svg" alt="Phone" style="width:32px; height:32px; vertical-align:middle;">
                             </button>
@@ -336,7 +340,9 @@
             <button id="overlayClose1" class="btn btn-dark btn-sm" style="position:absolute; top:10px; right:10px;">✕</button>
             <h3 id="overlayText" class="text-center fw-bold mt-1">---</h3>
             <hr>
-            <img id="overlayImage" src="" alt="Material Image" class="img-fluid mb-3">
+            <img id="overlayImage" src="" alt="Material Image" class="img-fluid mb-2">
+            <p class="text-muted small mb-2">Click a swatch to use its color code</p>
+            <div id="overlaySwatches" class="color-swatches-grid"></div>
         </div>
     </div>
 
