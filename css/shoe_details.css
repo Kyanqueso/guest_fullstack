@@ -7,9 +7,8 @@
 }
 
 .details-back-btn:hover {
-    background-color: var(--color-black);
-    color: white;
-    border-color: var(--color-black);
+    background-color: #ded8d1 !important;
+    border-color: rgba(0, 0, 0, 0.35);
 }
 
 .details-browse-group {
@@ -98,6 +97,7 @@
 }
 
 /* Color Swatches Grid */
+
 .color-swatches-grid {
     display: flex;
     flex-wrap: wrap;

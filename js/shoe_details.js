@@ -304,63 +304,63 @@
 
         const MATERIAL_COLORS = {
             Helga: [
-                { code: 'H01', hex: '#1C1C1C', name: 'Black' },
-                { code: 'H02', hex: '#6B2B2B', name: 'Maroon' },
-                { code: 'H03', hex: '#ab4a24', name: 'Rust' },
-                { code: 'H04', hex: '#8B6040', name: 'Brown' },
-                { code: 'H05', hex: '#C4A878', name: 'Tan' },
-                { code: 'H06', hex: '#ffffff', name: 'Cream' },
-                { code: 'H07', hex: '#E8C4BC', name: 'Blush' },
-                { code: 'H08', hex: '#8d3b35', name: 'Mauve' },
-                { code: 'H09', hex: '#A090B0', name: 'Lavender' },
-                { code: 'H10', hex: '#A0A0A0', name: 'Gray' },
-                { code: 'H11', hex: '#A07860', name: 'Taupe' },
-                { code: 'H12', hex: '#B5522A', name: 'Caramel' },
-                { code: 'H13', hex: '#D4A828', name: 'Mustard' },
+                { code: 'H01', hex: '#1C1C1C' },
+                { code: 'H02', hex: '#6B2B2B' },
+                { code: 'H03', hex: '#ab4a24' },
+                { code: 'H04', hex: '#8B6040' },
+                { code: 'H05', hex: '#C4A878' },
+                { code: 'H06', hex: '#ffffff' },
+                { code: 'H07', hex: '#E8C4BC' },
+                { code: 'H08', hex: '#8d3b35' },
+                { code: 'H09', hex: '#A090B0' },
+                { code: 'H10', hex: '#A0A0A0' },
+                { code: 'H11', hex: '#A07860' },
+                { code: 'H12', hex: '#B5522A' },
+                { code: 'H13', hex: '#D4A828' },
             ],
             Snake: [
-                { code: 'S01', hex: '#1A1A1A', name: 'Black' },
-                { code: 'S02', hex: '#b39e7a', name: 'Rose Gold' },
-                { code: 'S03', hex: '#7A1820', name: 'Burgundy' },
-                { code: 'S04', hex: '#150b21', name: 'Deep Purple' },
-                { code: 'S05', hex: '#261616', name: 'Deep Purple' },
-                { code: 'S06', hex: '#1C2878', name: 'Cobalt Blue' },
-                { code: 'S07', hex: '#b4ac98', name: 'Champagne' },
-                { code: 'S08', hex: '#0c0c0c', name: 'Silver' },
-                { code: 'S09', hex: '#bac1cc', name: 'Periwinkle' },
-                { code: 'S10', hex: '#D0B898', name: 'Beige' },
-                { code: 'S11', hex: '#D4A8A8', name: 'Blush Pink' },
+                { code: 'S01', hex: '#1A1A1A' },
+                { code: 'S02', hex: '#b39e7a' },
+                { code: 'S03', hex: '#7A1820' },
+                { code: 'S04', hex: '#150b21' },
+                { code: 'S05', hex: '#261616' },
+                { code: 'S06', hex: '#1C2878' },
+                { code: 'S07', hex: '#b4ac98' },
+                { code: 'S08', hex: '#0c0c0c' },
+                { code: 'S09', hex: '#bac1cc' },
+                { code: 'S10', hex: '#D0B898' },
+                { code: 'S11', hex: '#D4A8A8' },
             ],
             Patent: [
-                { code: 'P01', hex: '#000000', name: 'Black' },
-                { code: 'P02', hex: '#c79d7a', name: 'Silver' },
-                { code: 'P03', hex: '#cbb5a0', name: 'Glitter Silver' },
-                { code: 'P04', hex: '#8b847f', name: 'Cognac' },
-                { code: 'P05', hex: '#81674e', name: 'Navy' },
-                { code: 'P06', hex: '#54453e', name: 'Blush Pink' },
-                { code: 'P07', hex: '#74250d', name: 'Rose Gold' },
-                { code: 'P08', hex: '#a2a59e', name: 'Dark Crimson' },
-                { code: 'P09', hex: '#212852', name: 'Crimson' },
-                { code: 'P10', hex: '#620407', name: 'Red' },
-                { code: 'P11', hex: '#cb9798', name: 'Bright Red' },
-                { code: 'P12', hex: '#1b1b1a', name: 'Scarlet' },
-                { code: 'P13', hex: '#a37979', name: 'Deep Red' },
-                { code: 'P14', hex: '#9b0110', name: 'Wine' },
-                { code: 'P15', hex: '#071213', name: 'Red Orange' },
-                { code: 'P16', hex: '#cdac08', name: 'Yellow' },
-                { code: 'P17', hex: '#7fb9c2', name: 'Teal' },
+                { code: 'P01', hex: '#000000' },
+                { code: 'P02', hex: '#c79d7a' },
+                { code: 'P03', hex: '#cbb5a0' },
+                { code: 'P04', hex: '#8b847f' },
+                { code: 'P05', hex: '#81674e' },
+                { code: 'P06', hex: '#54453e' },
+                { code: 'P07', hex: '#74250d' },
+                { code: 'P08', hex: '#a2a59e' },
+                { code: 'P09', hex: '#212852' },
+                { code: 'P10', hex: '#620407' },
+                { code: 'P11', hex: '#cb9798' },
+                { code: 'P12', hex: '#1b1b1a' },
+                { code: 'P13', hex: '#a37979' },
+                { code: 'P14', hex: '#9b0110' },
+                { code: 'P15', hex: '#071213' },
+                { code: 'P16', hex: '#cdac08' },
+                { code: 'P17', hex: '#7fb9c2' },
             ],
             Tanya: [
-                { code: 'T01', hex: '#1d1e21', name: 'Black' },
-                { code: 'T02', hex: '#5e4330 ', name: 'Dark Brown' },
-                { code: 'T03', hex: '#B8A48E ', name: 'Copper' },
-                { code: 'T04', hex: '#ffffff', name: 'White' },
-                { code: 'T05', hex: '#756259', name: 'Taupe' },
-                { code: 'T06', hex: '#8b381f', name: 'Rust' },
-                { code: 'T07', hex: '#a3786e', name: 'Copper' },
-                { code: 'T08', hex: '#a05e12', name: 'Mustard' },
-                { code: 'T09', hex: '#4A6040', name: 'Olive' },
-                { code: 'T10', hex: '#C82020', name: 'Red' },
+                { code: 'T01', hex: '#1d1e21' },
+                { code: 'T02', hex: '#5e4330' },
+                { code: 'T03', hex: '#B8A48E' },
+                { code: 'T04', hex: '#ffffff' },
+                { code: 'T05', hex: '#756259' },
+                { code: 'T06', hex: '#8b381f' },
+                { code: 'T07', hex: '#a3786e' },
+                { code: 'T08', hex: '#a05e12' },
+                { code: 'T09', hex: '#4A6040' },
+                { code: 'T10', hex: '#C82020' },
             ],
         };
 
@@ -384,6 +384,7 @@
         setupButtonGroup(heelBtns);
 
         const overlaySwatches = document.getElementById("overlaySwatches");
+        const overlaySwatchHint = document.getElementById("overlaySwatchHint");
 
         infoButtons.forEach(btn => {
             btn.addEventListener("click", () => {
@@ -397,10 +398,11 @@
                 // Render color swatches
                 overlaySwatches.innerHTML = '';
                 const colors = MATERIAL_COLORS[material] || [];
+                overlaySwatchHint.classList.toggle('d-none', colors.length === 0);
                 colors.forEach(color => {
                     const item = document.createElement('button');
                     item.className = 'color-swatch-item';
-                    item.title = `${color.code} — ${color.name} (${color.hex})`;
+                    item.title = `${color.code} (${color.hex})`;
 
                     const circle = document.createElement('div');
                     circle.className = 'color-swatch-circle';
@@ -413,8 +415,12 @@
                     item.appendChild(circle);
                     item.appendChild(code);
 
-                    // Click swatch → fill color input and close overlay
+                    // Click swatch → select material, fill color input, close overlay
                     item.addEventListener('click', () => {
+                        materialBtns.forEach(b => {
+                            b.classList.remove('active');
+                            if (b.textContent.trim() === material) b.classList.add('active');
+                        });
                         colorInput.value = color.code;
                         colorInput.dispatchEvent(new Event('input'));
                         materialOverlay.classList.add('d-none');

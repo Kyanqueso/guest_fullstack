@@ -51,6 +51,17 @@ body {
     box-shadow: 2px 4px 4px 1px rgba(0, 0, 0, 0.3);
 }
 
+.filter-btn {
+    border: none;
+    background: transparent;
+    color: var(--color-black);
+    transition: background-color 0.2s ease;
+}
+
+.filter-btn:hover {
+    background-color: #ded8d1 !important;
+}
+
 /* ------ Header Styles ------ */
 
 /* Base nav-link style */
