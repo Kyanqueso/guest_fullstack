@@ -314,63 +314,64 @@
 
         const MATERIAL_COLORS = {
             Helga: [
-                { code: 'H01', hex: '#1C1C1C' },
-                { code: 'H02', hex: '#6B2B2B' },
-                { code: 'H03', hex: '#ab4a24' },
-                { code: 'H04', hex: '#8B6040' },
-                { code: 'H05', hex: '#C4A878' },
-                { code: 'H06', hex: '#ffffff' },
-                { code: 'H07', hex: '#E8C4BC' },
-                { code: 'H08', hex: '#8d3b35' },
-                { code: 'H09', hex: '#A090B0' },
-                { code: 'H10', hex: '#A0A0A0' },
-                { code: 'H11', hex: '#A07860' },
-                { code: 'H12', hex: '#B5522A' },
-                { code: 'H13', hex: '#D4A828' },
+                { code: 'H01', img: '../assets/images/materials/Helga/HL 1.png' },
+                { code: 'H02', img: '../assets/images/materials/Helga/HL 2.png' },
+                { code: 'H03', img: '../assets/images/materials/Helga/HL 3.png' },
+                { code: 'H04', img: '../assets/images/materials/Helga/HL 4.png' },
+                { code: 'H05', img: '../assets/images/materials/Helga/HL 5.png' },
+                { code: 'H06', img: '../assets/images/materials/Helga/HL 6.png' },
+                { code: 'H07', img: '../assets/images/materials/Helga/HL 7.png' },
+                { code: 'H08', img: '../assets/images/materials/Helga/HL 8.png' },
+                { code: 'H09', img: '../assets/images/materials/Helga/HL 9.png' },
+                { code: 'H10', img: '../assets/images/materials/Helga/HL 10.png' },
+                { code: 'H11', img: '../assets/images/materials/Helga/HL 11.png' },
+                { code: 'H12', img: '../assets/images/materials/Helga/HL 12.png' },
+                { code: 'H13', img: '../assets/images/materials/Helga/HL 13.png' },
             ],
             Snake: [
-                { code: 'S01', hex: '#1A1A1A' },
-                { code: 'S02', hex: '#b39e7a' },
-                { code: 'S03', hex: '#7A1820' },
-                { code: 'S04', hex: '#150b21' },
-                { code: 'S05', hex: '#261616' },
-                { code: 'S06', hex: '#1C2878' },
-                { code: 'S07', hex: '#b4ac98' },
-                { code: 'S08', hex: '#0c0c0c' },
-                { code: 'S09', hex: '#bac1cc' },
-                { code: 'S10', hex: '#D0B898' },
-                { code: 'S11', hex: '#D4A8A8' },
+                { code: 'S01', img: '../assets/images/materials/SnakeSkin/S 1.png' },
+                { code: 'S02', img: '../assets/images/materials/SnakeSkin/S 2.png' },
+                { code: 'S03', img: '../assets/images/materials/SnakeSkin/S 3.png' },
+                { code: 'S04', img: '../assets/images/materials/SnakeSkin/S 4.png' },
+                { code: 'S05', img: '../assets/images/materials/SnakeSkin/S 5.png' },
+                { code: 'S06', img: '../assets/images/materials/SnakeSkin/S 6.png' },
+                { code: 'S07', img: '../assets/images/materials/SnakeSkin/S 7.png' },
+                { code: 'S08', img: '../assets/images/materials/SnakeSkin/S 8.png' },
+                { code: 'S09', img: '../assets/images/materials/SnakeSkin/S 9.png' },
+                { code: 'S10', img: '../assets/images/materials/SnakeSkin/S 10.png' },
+                { code: 'S11', img: '../assets/images/materials/SnakeSkin/S 11.png' },
+                { code: 'S12', img: '../assets/images/materials/SnakeSkin/S 12.png' },
             ],
             Patent: [
-                { code: 'P01', hex: '#000000' },
-                { code: 'P02', hex: '#c79d7a' },
-                { code: 'P03', hex: '#cbb5a0' },
-                { code: 'P04', hex: '#8b847f' },
-                { code: 'P05', hex: '#81674e' },
-                { code: 'P06', hex: '#54453e' },
-                { code: 'P07', hex: '#74250d' },
-                { code: 'P08', hex: '#a2a59e' },
-                { code: 'P09', hex: '#212852' },
-                { code: 'P10', hex: '#620407' },
-                { code: 'P11', hex: '#cb9798' },
-                { code: 'P12', hex: '#1b1b1a' },
-                { code: 'P13', hex: '#a37979' },
-                { code: 'P14', hex: '#9b0110' },
-                { code: 'P15', hex: '#071213' },
-                { code: 'P16', hex: '#cdac08' },
-                { code: 'P17', hex: '#7fb9c2' },
+                { code: 'P01', img: '../assets/images/materials/Patent/PL 1.png' },
+                { code: 'P02', img: '../assets/images/materials/Patent/PL 2.png' },
+                { code: 'P03', img: '../assets/images/materials/Patent/PL 3.png' },
+                { code: 'P04', img: '../assets/images/materials/Patent/PL 4.png' },
+                { code: 'P05', img: '../assets/images/materials/Patent/PL 5.png' },
+                { code: 'P06', img: '../assets/images/materials/Patent/PL 6.png' },
+                { code: 'P07', img: '../assets/images/materials/Patent/PL 7.png' },
+                { code: 'P08', img: '../assets/images/materials/Patent/PL 8.png' },
+                { code: 'P09', img: '../assets/images/materials/Patent/PL 9.png' },
+                { code: 'P10', img: '../assets/images/materials/Patent/PL 10.png' },
+                { code: 'P11', img: '../assets/images/materials/Patent/PL 11.png' },
+                { code: 'P12', img: '../assets/images/materials/Patent/PL 12.png' },
+                { code: 'P13', img: '../assets/images/materials/Patent/PL 13.png' },
+                { code: 'P14', img: '../assets/images/materials/Patent/PL 14.png' },
+                { code: 'P15', img: '../assets/images/materials/Patent/PL 15.png' },
+                { code: 'P16', img: '../assets/images/materials/Patent/PL 16.png' },
+                { code: 'P17', img: '../assets/images/materials/Patent/PL 17.png' },
             ],
             Tanya: [
-                { code: 'T01', hex: '#1d1e21' },
-                { code: 'T02', hex: '#5e4330' },
-                { code: 'T03', hex: '#B8A48E' },
-                { code: 'T04', hex: '#ffffff' },
-                { code: 'T05', hex: '#756259' },
-                { code: 'T06', hex: '#8b381f' },
-                { code: 'T07', hex: '#a3786e' },
-                { code: 'T08', hex: '#a05e12' },
-                { code: 'T09', hex: '#4A6040' },
-                { code: 'T10', hex: '#C82020' },
+                { code: 'T01', img: '../assets/images/materials/Tanya/T 1.png' },
+                { code: 'T02', img: '../assets/images/materials/Tanya/T 2.png' },
+                { code: 'T03', img: '../assets/images/materials/Tanya/T 3.png' },
+                { code: 'T04', img: '../assets/images/materials/Tanya/T 4.png' },
+                { code: 'T05', img: '../assets/images/materials/Tanya/T 5.png' },
+                { code: 'T06', img: '../assets/images/materials/Tanya/T 6.png' },
+                { code: 'T07', img: '../assets/images/materials/Tanya/T 7.png' },
+                { code: 'T08', img: '../assets/images/materials/Tanya/T 8.png' },
+                { code: 'T09', img: '../assets/images/materials/Tanya/T 9.png' },
+                { code: 'T10', img: '../assets/images/materials/Tanya/T 10.png' },
             ],
         };
 
@@ -401,31 +402,37 @@
                 const text = btn.dataset.text;
                 const img = btn.dataset.img;
                 const material = btn.dataset.material;
+                const colors = MATERIAL_COLORS[material] || [];
+                const isMaterial = colors.length > 0;
 
                 overlayText.textContent = text;
-                overlayImage.src = img;
 
-                // Render color swatches
+                // Material info: hide big image, show color image grid
+                // Mold/heel/etc: show big image, no grid
+                overlayImage.classList.toggle('d-none', isMaterial);
+                if (!isMaterial) overlayImage.src = img;
+
+                overlaySwatchHint.classList.toggle('d-none', !isMaterial);
+
                 overlaySwatches.innerHTML = '';
-                const colors = MATERIAL_COLORS[material] || [];
-                overlaySwatchHint.classList.toggle('d-none', colors.length === 0);
                 colors.forEach(color => {
                     const item = document.createElement('button');
                     item.className = 'color-swatch-item';
-                    item.title = `${color.code} (${color.hex})`;
+                    item.title = color.code;
 
-                    const circle = document.createElement('div');
-                    circle.className = 'color-swatch-circle';
-                    circle.style.backgroundColor = color.hex;
+                    const swatchImg = document.createElement('img');
+                    swatchImg.src = color.img;
+                    swatchImg.className = 'color-swatch-img';
+                    swatchImg.alt = color.code;
 
                     const code = document.createElement('span');
                     code.className = 'color-swatch-code';
                     code.textContent = color.code;
 
-                    item.appendChild(circle);
+                    item.appendChild(swatchImg);
                     item.appendChild(code);
 
-                    // Click swatch → select material, fill color input, close overlay
+                    // Click image → select material, fill color input, close overlay
                     item.addEventListener('click', () => {
                         materialBtns.forEach(b => {
                             b.classList.remove('active');
