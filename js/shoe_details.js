@@ -312,6 +312,13 @@
         // MATERIAL INFO ICON BUTTONS
         const infoButtons = document.querySelectorAll(".no-design");
 
+        const MATERIAL_DESCRIPTIONS = {
+            Helga: "A premium smooth leather valued for its consistent texture and long-lasting durability. Its clean matte finish makes it effortlessly versatile — suitable for both everyday wear and semi-formal occasions. Colors hold vibrantly over time, and the surface resists everyday scuffs, making it a reliable choice for a shoe that will go the distance.",
+            Snake: "A bold embossed leather featuring a striking reptile-scale pattern that instantly elevates any look. Perfect for customers who want their footwear to make a statement. The textured surface adds depth and visual character, giving each pair a fashion-forward edge that stands out from the crowd.",
+            Patent: "Defined by its signature high-gloss, mirror-like finish, patent leather is the classic choice for formal occasions, evening wear, and moments where you want to truly shine. Its smooth lacquered surface is easy to wipe clean and naturally water-resistant — timeless elegance that's also practical.",
+            Tanya: "A soft, supple leather with a subtle metallic sheen that strikes the perfect balance between luxury and comfort. Its refined texture and flexible feel make it ideal for all-day wear without sacrificing style. A favorite for those who prefer understated sophistication with a hint of shimmer.",
+        };
+
         const MATERIAL_COLORS = {
             Helga: [
                 { code: 'H01', img: '../assets/images/materials/Helga/HL 1.png' },
@@ -396,6 +403,7 @@
 
         const overlaySwatches = document.getElementById("overlaySwatches");
         const overlaySwatchHint = document.getElementById("overlaySwatchHint");
+        const overlayDescription = document.getElementById("overlayDescription");
 
         infoButtons.forEach(btn => {
             btn.addEventListener("click", () => {
@@ -413,6 +421,10 @@
                 if (!isMaterial) overlayImage.src = img;
 
                 overlaySwatchHint.classList.toggle('d-none', !isMaterial);
+
+                const desc = MATERIAL_DESCRIPTIONS[material] || '';
+                overlayDescription.textContent = desc;
+                overlayDescription.classList.toggle('d-none', !desc);
 
                 overlaySwatches.innerHTML = '';
                 colors.forEach(color => {
