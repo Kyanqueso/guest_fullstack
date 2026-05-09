@@ -1,0 +1,261 @@
+/* ============================
+   HERO
+   ============================ */
+.about-hero {
+    background-color: var(--color-primary);
+    min-height: 70vh;
+    padding: 6rem 2rem;
+    color: white;
+}
+
+.about-eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 1.5rem;
+}
+
+.about-hero-title {
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 1.2rem;
+}
+
+.about-hero-sub {
+    font-size: clamp(0.95rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 480px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.about-hero-line {
+    width: 60px;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 2px;
+}
+
+/* ============================
+   STATS STRIP
+   ============================ */
+.about-stats {
+    background-color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 3rem 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.about-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 3rem;
+}
+
+.about-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+}
+
+.about-stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.about-stat-divider {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(0,0,0,0.15);
+}
+
+/* ============================
+   OUR STORY
+   ============================ */
+.about-story {
+    background-color: #fff;
+    padding: 5rem 2rem;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.about-section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.about-section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--color-black);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.about-story-text {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #444;
+    margin-bottom: 1.2rem;
+    text-align: justify;
+}
+
+/* ============================
+   PULL QUOTE
+   ============================ */
+.about-quote {
+    background-color: var(--color-primary);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-quote::before {
+    content: '\201C';
+    font-family: 'Playfair Display', serif;
+    font-size: 18rem;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: -4rem;
+    left: 1rem;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.about-quote-text {
+    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+    color: white;
+    font-style: italic;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto 1.2rem;
+    line-height: 1.5;
+    position: relative;
+}
+
+.about-quote-cite {
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    font-style: normal;
+}
+
+/* ============================
+   VALUES
+   ============================ */
+.about-values {
+    background-color: var(--color-accent);
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+.about-values-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 2.5rem auto 0;
+}
+
+.about-value-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2.2rem 1.8rem;
+    flex: 1 1 260px;
+    max-width: 300px;
+    text-align: left;
+    border-top: 4px solid var(--color-primary);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.about-value-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(93, 28, 52, 0.15);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+}
+
+.about-value-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.8rem;
+}
+
+.about-value-text {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 60vh;
+        padding: 4rem 1.5rem;
+    }
+
+    .about-stat {
+        padding: 0.8rem 1.8rem;
+    }
+
+    .about-stat-divider {
+        display: none;
+    }
+
+    .about-stats {
+        gap: 1rem;
+    }
+
+    .about-story {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .about-quote {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .about-values {
+        padding: 3.5rem 1.5rem;
+    }
+
+    .about-value-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        min-height: 50vh;
+        padding: 3rem 1.2rem;
+    }
+
+    .about-quote::before {
+        font-size: 10rem;
+    }
+}

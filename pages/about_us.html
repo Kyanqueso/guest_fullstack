@@ -8,9 +8,10 @@
 
     <!-- Import CSS Files and Local Bootstrap-->
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/about_us.css">
     <link rel="stylesheet" href="../assets/bootstrap/bootstrap.min.css">
 
-    <title>Theresa Shoes Landing Page</title>
+    <title>About Us — Theresa Shoes</title>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -47,31 +48,80 @@
 </header>
 
 <!-- Main Content Area -->
-<main class="flex-grow-1" style="background-color: var(--color-accent);">
-    <div class="container my-5">
-        <div class="row align-items-center justify-content-between">
-            <!-- Text Column -->
-            <div class="col-12 col-md-7 mb-4 mb-md-0 pe-md-5">
-                <h1 class="header-text text-center text-md-start fw-bold">About Us</h1>
-                <p id="about-us-text" class="pt-4 text-justify">
-                    Since the early 1900s, TheresaShoes has been crafting shoes by hand in the heart of our country's 
-                    shoemaking capital, Marikina City. 
-                    
-                    Across each generation, our family has carried over a 
-                    tradition rooted in quality leather, thread, and craftmanship into shoes our customers can 
-                    rely on. 
-                    
-                    Every pair carries the care of three generations, and the commitment to give you footwear 
-                    you'll feel confident in every step of the way.
-                </p>
-            </div>
+<main class="flex-grow-1">
 
-            <!-- Image Column -->
-            <div class="col-12 col-md-5 d-flex justify-content-center ps-md-5">
-                <img src="../assets/images/shoe-factory-img.jpg" class="rounded img-fluid box-drop-shadow" alt="Shoes">
+    <!-- Hero -->
+    <section class="about-hero d-flex flex-column align-items-center justify-content-center text-center">
+        <p class="about-eyebrow">Est. Early 1900s &nbsp;·&nbsp; Marikina City</p>
+        <h1 class="about-hero-title header-text">Three Generations.<br>One Pair at a Time.</h1>
+        <p class="about-hero-sub">Handcrafted footwear rooted in tradition, quality, and family pride.</p>
+        <div class="about-hero-line"></div>
+    </section>
+
+    <!-- Stats Strip -->
+    <section class="about-stats">
+        <div class="about-stat">
+            <span class="about-stat-num">100+</span>
+            <span class="about-stat-label">Years of Heritage</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+            <span class="about-stat-num">3</span>
+            <span class="about-stat-label">Generations of Craft</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+            <span class="about-stat-num">MNL</span>
+            <span class="about-stat-label">Heart of Shoemaking</span>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="about-story">
+        <div class="about-section-label">Our Story</div>
+        <h2 class="about-section-title header-text">Where Every Pair<br>Begins With a Promise</h2>
+        <p class="about-story-text">
+            Since the early 1900s, Theresa Shoes has been crafting footwear by hand in the heart of Marikina City —
+            the Philippines' shoemaking capital. What started as a small family workshop has endured through
+            generations, each one carrying forward the same dedication to quality leather, careful stitching,
+            and honest craftsmanship.
+        </p>
+        <p class="about-story-text">
+            Across three generations, the tools have evolved but the values never have. Every pair that leaves
+            our hands is made to be relied on — footwear you'll feel confident wearing every step of the way.
+        </p>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="about-quote">
+        <blockquote class="about-quote-text header-text">
+            "Every pair carries the care of three generations."
+        </blockquote>
+        <cite class="about-quote-cite">— Theresa Shoes, Marikina City</cite>
+    </section>
+
+    <!-- Values -->
+    <section class="about-values">
+        <div class="about-section-label" style="color: var(--color-primary);">What We Stand For</div>
+        <div class="about-values-grid">
+            <div class="about-value-card">
+                <div class="about-value-num">01</div>
+                <h3 class="about-value-title header-text">Quality Materials</h3>
+                <p class="about-value-text">We source only genuine leather and premium materials — because what goes into the shoe determines how long it lasts.</p>
+            </div>
+            <div class="about-value-card">
+                <div class="about-value-num">02</div>
+                <h3 class="about-value-title header-text">Expert Craftsmanship</h3>
+                <p class="about-value-text">Each pair is shaped, stitched, and finished by hand. No shortcuts — just the patience and skill passed down through family.</p>
+            </div>
+            <div class="about-value-card">
+                <div class="about-value-num">03</div>
+                <h3 class="about-value-title header-text">Family Heritage</h3>
+                <p class="about-value-text">We are not a factory. We are a family. Every order you place is handled with the same pride we put into our very first pair.</p>
             </div>
         </div>
-    </div>
+    </section>
+
 </main>
 
 

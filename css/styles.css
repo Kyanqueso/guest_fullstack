@@ -332,24 +332,6 @@ footer hr {
     }
 }
 
-/* ------ About Us Styles ------ */
-#about-us-text {
-    font-size: 1.5rem; /* Larger font size for better readability */
-    line-height: 1.8; /* Increased line height for improved spacing */
-}
-
-/* Adjust font size for smaller screens */
-@media (max-width: 768px) {
-    #about-us-text {
-        font-size: 1.2rem; 
-    }
-}
-
-@media (max-width: 468px){
-    #about-us-text {
-        font-size: 1rem; 
-    }
-}
 
 /* ------ Shoe Catalog Styles ------ */
 
